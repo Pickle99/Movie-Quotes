@@ -9,8 +9,9 @@
             <div class="items-center">
             <img class="max-w-sm"  src="{{asset('storage/'.$movie->name.'.jpg')}}" alt="img" />
               <div class="text-center">
-                    <p class="pt-2 font-bold"> Movie: {{ $movie->name }}</p>
-        <p class="pt-2.5">Quote: {{$movie->quotes[random_int(0,2)]->name}}</p>
+                  <p class="pt-3 text-lg">Quote: {{$movie->quotes[random_int(0,2)]->name}}</p>
+                   <a href="/movie/{{$movie->id}}"> <p class="mt-8 font-bold text-2xl"> Movie: {{ $movie->name }}</p></a>
+
               </div>
             </div>
         @endforeach
