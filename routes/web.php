@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\SessionsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [MovieController::class, 'index'])->name('home');
+Route::get('movie/{id}', [MovieController::class, 'show'])->name('movie');
+Route::get('login', [SessionsController::class, 'create'])->name('login');
