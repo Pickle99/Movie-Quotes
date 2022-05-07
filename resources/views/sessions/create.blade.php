@@ -14,7 +14,7 @@
                   <label for="email"/>
                    <input name="email" type="email" autocomplete="email" id="email"  class="p-3" placeholder="Email"/>
                  @error('email')
-                   <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                   <p class="text-red-500 text-lg mt-1">{{ $message }}</p>
                    @enderror
                    </div>
 

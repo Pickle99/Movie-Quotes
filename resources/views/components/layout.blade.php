@@ -4,9 +4,28 @@
 
 <body class="bg-gray-500">
 
-<div class="w-full flex justify-center pt-56">
-    <div class="max-w-sm">
+@auth()
+    <div class="mt-4 flex justify-end">
 
+           <div class="px-3.5 bg-red-50 rounded-xl">
+            <a href="/admin" class="text-xl">Admin Panel</a>
+        </div>
+
+        <form method="POST" action="/logout">
+            @csrf
+
+
+            <div class="mx-20 bg-red-50 px-3.5 rounded-xl">
+                <button type="submit" class="text-xl">Log Out</button>
+            </div>
+
+        </form>
+</div>
+@endauth
+
+<div class="w-full flex justify-center pt-56">
+
+    <div class="max-w-sm">
 
         <div class="items-center">
             <img src="{{ $quote[0]->image }}" alt="img">
@@ -16,8 +35,12 @@
             </div>
         </div>
 
-
+        @if(session()->has('success'))
+            <div
+                class="fixed bg-blue-500 text-white py-2 px-4 rounded-xl bottom-3 right-3 text-sm">
+                <p>{{session('success')}}</p>
+            </div>
+        @endif
     </div>
 </div>
-
 </body>

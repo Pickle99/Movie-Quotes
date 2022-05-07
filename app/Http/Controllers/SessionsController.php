@@ -22,10 +22,16 @@ class SessionsController extends Controller
 		if (!auth()->attempt($attributes))
 		{
 			throw ValidationException::withMessages([
-				'email' => 'Hey! Wrong email!',
+				'email'    => 'Wrong email or password!',
 			]);
 		}
 		session()->regenerate();
-		return redirect('admin')->with('success', 'Happy hacking');
+		return redirect('/')->with('success', 'Happy hacking ;)');
+	}
+
+	public function destroy()
+	{
+		auth()->logout();
+		return redirect('/')->with('success', 'Bye :(');
 	}
 }
