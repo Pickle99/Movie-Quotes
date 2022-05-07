@@ -28,9 +28,9 @@
     <div class="max-w-sm">
 
         <div class="items-center">
-            <img src="{{ $quote[0]->image }}" alt="img">
+            <img src="{{ asset('storage/'.$movie->image) }}" alt="img">
             <div class="text-center">
-                <p class="pt-3 text-2xl text-white">{{$quote[(random_int(0,2))]->name}}</p>
+                <p class="pt-3 text-2xl text-white">{{$quotes[0]->quote}}</p>
                 <a href="/movie/{{$movie->id}}"> <p class="mt-8 text-white underline text-2xl">{{ $movie->name }}</p></a>
             </div>
         </div>

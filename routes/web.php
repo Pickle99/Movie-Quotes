@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CrudController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\SessionsController;
 use Illuminate\Support\Facades\Route;
@@ -21,3 +22,5 @@ Route::get('login', [SessionsController::class, 'create'])->name('login')->middl
 Route::post('sessions', [SessionsController::class, 'store'])->name('sessions.store')->middleware('guest');
 Route::get('admin', [MovieController::class, 'create'])->name('admin.show')->middleware('auth');
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
+Route::get('admin/movies/create', [CrudController::class, 'create'])->middleware('auth');
+Route::post('admin/movies', [CrudController::class, 'store'])->middleware('auth');

@@ -28,11 +28,13 @@
                   <p class="pb-20 text-white text-3xl">{{ $movie->name }}</p>
               </div>
              <div>
-                @foreach($movie->quotes as $quote)
-                    <div class="my-12">
-                        <img src="{{ $quote->image }}" alt="img">
-                        <p class="py-4 bg-red-50 rounded"> {{$quote->name}}</p>
+{{--                 <img src="{{asset('storage/'.$movie->image) }}" alt="img">--}}
 
+{{--                 {{dd($quotes)}}--}}
+                @foreach($quotes as $quote)
+                    <div class="my-12">
+                        <img src="{{asset('storage/'.$movie->image)}}" alt="img">
+                        <p class="py-4 bg-red-50 rounded"> {{$quote->quote}}</p>
                     </div>
                 @endforeach
              </div>
