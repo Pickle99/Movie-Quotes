@@ -20,7 +20,7 @@ Route::get('/', [MovieController::class, 'index'])->name('home');
 Route::get('movie/{id}', [MovieController::class, 'show'])->name('movie');
 Route::get('login', [SessionsController::class, 'create'])->name('login')->middleware('guest');
 Route::post('sessions', [SessionsController::class, 'store'])->name('sessions.store')->middleware('guest');
-Route::get('admin', [MovieController::class, 'create'])->name('admin.show')->middleware('auth');
+Route::get('admin', [CrudController::class, 'index'])->name('admin.show')->middleware('auth');
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
 Route::get('admin/movies/create', [CrudController::class, 'create'])->middleware('auth');
 Route::post('admin/movies', [CrudController::class, 'store'])->middleware('auth');

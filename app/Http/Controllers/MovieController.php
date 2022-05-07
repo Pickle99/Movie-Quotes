@@ -27,10 +27,4 @@ class MovieController extends Controller
 			'quotes' => $movie->quotes,
 		]);
 	}
-
-	public function create()
-	{
-		return view('components.admin-page', [
-		]);
-	}
 }

@@ -33,20 +33,8 @@
                             <div class="mt-1">
                                 <textarea id="quote" name="quote" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder='"Where are they?!"'>{{ old('quote') }}</textarea>
                             </div>
-                            @error('quote')
-                            <p class="text-red-500 text-lg mt-2">
-                                {{$message}}
-                            </p>
-                            @enderror
                         </div>
 
-{{--                        <div >--}}
-{{--                                        <label for="movie_id" > Movie Id </label>--}}
-{{--                                        <div>--}}
-{{--                                            <input type="text" value="{{$movie->id}}" name="movie_id" id="movie_id"/>--}}
-{{--                                        </div>--}}
-
-{{--                                </div>--}}
 
                         <div>
                             <label class="block text-sm font-medium text-gray-700"> Cover photo </label>

@@ -36,4 +36,12 @@ class CrudController extends Controller
 		]);
 		return redirect('/');
 	}
+
+	public function index()
+	{
+		$movies = Movie::all();
+		return view('components.admin-page', [
+			'movies' => $movies,
+		]);
+	}
 }
