@@ -16,9 +16,16 @@
 
 <div class="bg-white">
     <div class="m-10">
-        <a class="bg-red-100 p-2 rounded" href="/admin/movies/create/">Create Post</a>
-        <a class="ml-10 bg-red-100 p-2 rounded" href="admin/">All Posts</a>
+       <div class="flex">
+           <a class=" bg-red-100 p-2 rounded" href="/admin/movies/create/">Create Post</a>
+               <a class=" ml-10 bg-red-100 p-2 rounded" href="admin/">All Posts</a>
+
+           <a class="bg-red-100 mx-auto justify-end flex p-2 rounded" href="/">Back on main page</a>
+       </div>
+
     </div>
+
+
 
    @foreach($movies as $movie)
         <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
