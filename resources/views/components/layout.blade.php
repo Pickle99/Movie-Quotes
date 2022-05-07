@@ -7,7 +7,7 @@
 @auth()
     <div class="mt-4 flex justify-end">
 
-           <div class="px-3.5 bg-red-50 rounded-xl">
+           <div class="hover:bg-red-300 px-3.5 bg-red-50 rounded-xl">
             <a href="/admin" class="text-xl">Admin Panel</a>
         </div>
 
@@ -15,7 +15,7 @@
             @csrf
 
 
-            <div class="mx-20 bg-red-50 px-3.5 rounded-xl">
+            <div class="hover:bg-red-300 mx-20 bg-red-50 px-3.5 rounded-xl">
                 <button type="submit" class="text-xl">Log Out</button>
             </div>
 
@@ -31,7 +31,7 @@
             <img src="{{ asset('storage/'.$movie->image) }}" alt="img">
             <div class="text-center">
                 <p class="pt-3 text-2xl text-white">{{$quotes[0]->quote}}</p>
-                <a href="/movie/{{$movie->id}}"> <p class="mt-8 text-white underline text-2xl">{{ $movie->name }}</p></a>
+                <div class="mt-8"><a  class=" text-white underline text-2xl" href="/movie/{{$movie->id}}"> {{$movie->name}}</a></div>
             </div>
         </div>
 
