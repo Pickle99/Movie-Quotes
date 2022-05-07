@@ -8,7 +8,7 @@
 
                 </div>
             <h1 class="text-cyan-400 text-3xl underline-offset-1 py-10"> Log In</h1>
-               <form>
+               <form method="POST" action="/sessions">
                    @csrf
                    <div class="mb-6">
                   <label for="email"/>
@@ -17,6 +17,8 @@
                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                    @enderror
                    </div>
+
+
                    <div>
                        <label for="password"/>
                        <input name="password" type="password" autocomplete="password" id="password"  class="p-3" placeholder="password"/>
@@ -24,8 +26,15 @@
                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                        @enderror
                    </div>
-                   <button class="mt-6 text-2xl bg-gray-700 px-4 rounded">Submit</button>
+
+
+
+                   <div>
+                       <button class="mt-6 text-2xl bg-red-400 hover:bg-amber-300 px-4 rounded">Submit</button>
+                   </div>
+
                </form>
+
             </div>
         </div>
     </div>
