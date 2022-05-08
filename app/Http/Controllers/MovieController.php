@@ -9,9 +9,12 @@ class MovieController extends Controller
 	public function index()
 	{
 		$movie = Movie::inRandomOrder()->first();
+		$movieExist = Movie::all();
+
 		return view('components.layout', [
-			'movie'  => $movie,
-			'quotes' => $movie->quotes,
+			'movie'      => $movie,
+			'movieExist' => $movieExist,
+			//			'quotes'     => $movie->quotes,
 		]);
 	}
 
@@ -24,7 +27,6 @@ class MovieController extends Controller
 
 		return view('components.show-quotes', [
 			'movie'  => $movie,
-			'quotes' => $movie->quotes,
 		]);
 	}
 }

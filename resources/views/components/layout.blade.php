@@ -27,13 +27,19 @@
 
     <div class="max-w-sm">
 
-        <div class="items-center">
-            <img src="{{ asset('storage/'.$movie->image) }}" alt="img">
-            <div class="text-center">
-                <p class="pt-3 text-2xl text-white">{{$quotes[0]->quote}}</p>
-                <div class="mt-8"><a  class=" text-white underline text-2xl" href="/movie/{{$movie->id}}"> {{$movie->name}}</a></div>
+           @if($movieExist->count())
+            <div class="items-center">
+                <img src="{{ asset('storage/'.$movie->image) }}" alt="img">
+                <div class="text-center">
+                    <p class="pt-3 text-2xl text-white">{{$movie->quotes[0]->quote}}</p>
+                    <div class="mt-8"><a  class=" text-white underline text-2xl" href="/movie/{{$movie->id}}"> {{$movie->name}}</a></div>
+
+                </div>
             </div>
-        </div>
+        @else
+
+            <h1 class="text-3xl"> no movies yet</h1>
+           @endif
 
         @if(session()->has('success'))
             <div

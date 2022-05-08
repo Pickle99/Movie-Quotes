@@ -24,19 +24,23 @@
         <div class="items-center pb-40">
 
             <div class="text-center">
+                @if(!is_null($movie))
               <div>
                   <p class="pb-20 text-white text-3xl">{{ $movie->name }}</p>
               </div>
              <div>
-{{--                 <img src="{{asset('storage/'.$movie->image) }}" alt="img">--}}
 
-{{--                 {{dd($quotes)}}--}}
-                @foreach($quotes as $quote)
-                    <div class="my-12">
-                        <img src="{{asset('storage/'.$movie->image)}}" alt="img">
-                        <p class="py-4 bg-red-50 rounded"> {{$quote->quote}}</p>
-                    </div>
-                @endforeach
+
+                     @foreach($movie->quotes as $quote)
+                         <div class="my-12">
+                             <img src="{{asset('storage/'.$movie->image)}}" alt="img">
+                             <p class="py-4 bg-red-50 rounded"> {{$quote->quote}}</p>
+                         </div>
+                     @endforeach
+                 @else
+                     <h1 class="text-3xl">Sorry, movie with this ID doesn't exist</h1>
+
+             @endif
              </div>
 
 
