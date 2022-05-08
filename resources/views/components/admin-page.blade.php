@@ -6,8 +6,8 @@
 <div>
     <div class="m-10">
        <div class="flex">
-           <a class="hover:bg-blue-700 bg-blue-100 font-mono p-2 rounded" href="/admin/movies/create/">Create Post</a>
-               <a class="hover:bg-blue-700 bg-blue-100 font-mono ml-10 bg-red-100 p-2 rounded" href="admin/">All Posts</a>
+           <a class="hover:bg-blue-700 bg-blue-100 font-mono p-2 rounded" href="/admin/movies/create/">Create Movie</a>
+               <a class="hover:bg-blue-700 bg-blue-100 mx-10 font-mono bg-red-100 p-2 rounded" href="admin/">All Posts</a>
 
            <a class="hover:bg-blue-700 bg-blue-100 font-mono mx-auto justify-end flex p-2 rounded" href="/">Back on main page</a>
        </div>
@@ -34,8 +34,10 @@
 
                 <!-- More products... -->
             </div>
-            <div class="mt-4"> <a class="hover:bg-green-500 font-mono bg-green-200 p-2 rounded" href="admin/movies/edit/{id}">Edit</a>
-                <a class="hover:bg-red-500 font-mono bg-red-200 ml-4 p-2 rounded" href="#">Delete</a></div>
+            <div class="mt-4"> <a class="hover:bg-green-500 font-mono bg-green-200 p-2 rounded" href="/admin/movies/edit/{id}">Edit</a>
+                <a class="hover:bg-blue-700 bg-blue-100 mx-10 font-mono p-2 rounded" href="/admin/movie/{{$movie->id}}">Add Quote</a>
+                <a class="hover:bg-red-500 font-mono bg-red-200 p-2 rounded" href="#">Delete</a></div>
+
         </div>
    @endforeach
 

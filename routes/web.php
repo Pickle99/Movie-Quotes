@@ -23,4 +23,6 @@ Route::post('sessions', [SessionsController::class, 'store'])->name('sessions.st
 Route::get('admin', [CrudController::class, 'index'])->name('admin.show')->middleware('auth');
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
 Route::get('admin/movies/create', [CrudController::class, 'create'])->middleware('auth');
+Route::get('admin/movie/{id}', [CrudController::class, 'show'])->middleware('auth');
 Route::post('admin/movies', [CrudController::class, 'store'])->middleware('auth');
+Route::post('admin/{id}', [CrudController::class, 'update'])->middleware('auth');

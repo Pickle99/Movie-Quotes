@@ -44,4 +44,26 @@ class CrudController extends Controller
 			'movies' => $movies,
 		]);
 	}
+
+	public function show($id)
+	{
+		$movie = Movie::find($id);
+		return view('components.admin-create-quote-page', [
+			'movie' => $movie,
+		]);
+	}
+
+	public function update($id)
+	{
+		$movie = Movie::find($id);
+
+		$validated = request()->validate([
+			'quote'    => 'required',
+		]);
+		Quote::create([
+			'movie_id' => $movie->id,
+			'quote'    => $validated['quote'],
+		]);
+		return redirect('/');
+	}
 }
