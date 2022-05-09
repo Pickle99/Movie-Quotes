@@ -31,8 +31,13 @@
             <div class="items-center">
                 <img src="{{ asset('storage/'.$movie->image) }}" alt="img">
                 <div class="text-center">
-                    <p class="pt-3 text-2xl text-white">{{$movie->quotes[0]->quote}}</p>
-                    <div class="mt-8"><a  class=" text-white underline text-2xl" href="/movie/{{$movie->id}}"> {{$movie->name}}</a></div>
+                    @if(!$movie->quotes->count())
+                        <p class="pt-3 text-2xl text-white">no quotes yet . . .</p>
+                    @else
+
+                        <p class="pt-3 text-2xl text-white">{{$movie->quotes[0]->title}}</p>
+                    @endif
+                        <div class="mt-8"><a  class=" text-white underline text-2xl" href="/movie/{{$movie->id}}"> {{$movie->name}}</a></div>
 
                 </div>
             </div>

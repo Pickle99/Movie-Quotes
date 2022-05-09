@@ -30,17 +30,26 @@
               </div>
              <div>
 
+                    @if(!$movie->quotes->count())
 
+                         <div class="my-12">
+                             <img src="{{asset('storage/'.$movie->image)}}" alt="img">
+                             <p class="py-4 bg-red-50 rounded"> Quotes for this movie dont exist yet ...</p>
+                         </div>
+
+                 @else
                      @foreach($movie->quotes as $quote)
                          <div class="my-12">
                              <img src="{{asset('storage/'.$movie->image)}}" alt="img">
-                             <p class="py-4 bg-red-50 rounded"> {{$quote->quote}}</p>
+                             <p class="py-4 bg-red-50 rounded"> {{$quote->title}}</p>
                          </div>
                      @endforeach
+                 @endif
                  @else
                      <h1 class="text-3xl">Sorry, movie with this ID doesn't exist</h1>
 
              @endif
+
              </div>
 
 

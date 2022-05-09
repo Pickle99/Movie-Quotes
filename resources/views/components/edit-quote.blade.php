@@ -6,7 +6,7 @@
     <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
             <div class="px-4 sm:px-0 w-full ml-96">
-                <h3 class="text-lg font-medium leading-6 text-gray-900 text-center mt-10">Edit Quote: {{$quote->quote}} || Quote Id: {{$quote->id}}</h3>
+                <h3 class="text-lg font-medium leading-6 text-gray-900 text-center mt-10">Edit Quote: {{$quote->title}} || Quote Id: {{$quote->id}}</h3>
             </div>
         </div>
         <div class="flex mt-40">
@@ -16,9 +16,9 @@
                 <div class="shadow sm:rounded-md sm:overflow-hidden">
                     <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                         <div class="w-96">
-                            <label for="quote" class="block text-sm font-medium text-gray-700"> Quote </label>
+                            <label for="title" class="block text-sm font-medium text-gray-700"> Quote </label>
                             <div class="mt-1">
-                                <textarea id="quote" name="quote" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md">{{$quote->quote}}</textarea>
+                                <textarea id="title" name="title" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md">{{$quote->title}}</textarea>
                             </div>
                         </div>
 

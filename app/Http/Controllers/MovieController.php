@@ -14,7 +14,6 @@ class MovieController extends Controller
 		return view('components.layout', [
 			'movie'      => $movie,
 			'movieExist' => $movieExist,
-			//			'quotes'     => $movie->quotes,
 		]);
 	}
 

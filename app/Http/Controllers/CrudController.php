@@ -20,14 +20,14 @@ class CrudController extends Controller
 		]);
 
 		$validator = request()->validate([
-			'quote' => 'required',
+			'title' => 'required',
 		]);
 		$validated['image'] = request()->file('image')->store('images');
 		$movie = Movie::create($validated);
 
 		Quote::create([
 			'movie_id' => $movie->id,
-			'quote'    => $validator['quote'],
+			'title'    => $validator['title'],
 		]);
 		return redirect('/');
 	}
@@ -53,11 +53,11 @@ class CrudController extends Controller
 		$movie = Movie::find($id);
 
 		$validated = request()->validate([
-			'quote'    => 'required',
+			'title'    => 'required',
 		]);
 		Quote::create([
 			'movie_id' => $movie->id,
-			'quote'    => $validated['quote'],
+			'title'    => $validated['title'],
 		]);
 		return redirect('admin');
 	}
@@ -79,7 +79,7 @@ class CrudController extends Controller
 		]);
 
 		$validator = request()->validate([
-			'quote' => 'required',
+			'title' => 'required',
 		]);
 		$validated['image'] = request()->file('image')->store('images');
 
@@ -101,7 +101,7 @@ class CrudController extends Controller
 	{
 		$quote = Quote::find($id);
 		$validated = request()->validate([
-			'quote' => 'required',
+			'title' => 'required',
 		]);
 
 		$quote->update($validated);

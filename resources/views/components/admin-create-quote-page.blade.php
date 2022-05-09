@@ -26,10 +26,15 @@
                         </div>
 
                         <div>
-                            <label for="quote" class="block text-sm font-medium text-gray-700"> Quote for this movie</label>
+                            <label for="title" class="block text-sm font-medium text-gray-700"> Quote for this movie</label>
                             <div class="mt-1">
-                                <textarea id="quote" name="quote" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder='"example"'>{{ old('quote') }}</textarea>
+                                <textarea id="title" name="title" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder='"example"'>{{ old('title') }}</textarea>
                             </div>
+                            @error('title')
+                            <p class="text-red-500 text-lg mt-2">
+                                {{$message}}
+                            </p>
+                            @enderror
                         </div>
 
 

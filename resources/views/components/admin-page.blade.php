@@ -24,7 +24,13 @@
                         <img src="{{asset('storage/'.$movie->image)}}" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="w-full h-full object-center object-cover group-hover:opacity-75">
                     </div>
                     <h3 class="my-4 text-sm text-gray-700">{{$movie->name}}</h3>
-                    <p class=" text-lg font-medium text-gray-900">{{$movie->quotes[0]->quote}}</p>
+                    @if($movie->quotes->count())
+
+                        <p class=" text-lg font-medium text-gray-900">{{$movie->quotes[0]->title}}</p>
+                    @else
+                        <p class=" text-2xl text-bold">no quotes yet . . .</p>
+
+                    @endif
                 </div>
                 <!-- More products... -->
             </div>
@@ -71,7 +77,7 @@
                                 <tbody class="divide-y divide-gray-200 bg-white">
                                 @foreach($movie->quotes as $quote)
                                 <tr>
-                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$quote->quote}}</td>
+                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$quote->title}}</td>
                                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$quote->id}}</td>
                                     <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                                        <div class="flex">  <a href="/admin/quote/{{$quote->id}}/edit" class="text-indigo-600 hover:text-indigo-900">Edit</a>
@@ -92,7 +98,6 @@
             </div>
         </div>
    @endforeach
-</div>
 @if(session()->has('success'))
     <div
         class="fixed bg-blue-500 text-white py-2 px-4 rounded-xl bottom-3 right-3 text-sm">
