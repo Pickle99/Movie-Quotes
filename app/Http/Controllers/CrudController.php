@@ -59,7 +59,7 @@ class CrudController extends Controller
 			'movie_id' => $movie->id,
 			'quote'    => $validated['quote'],
 		]);
-		return redirect('/');
+		return redirect('admin');
 	}
 
 	public function editMovie($id)
@@ -87,5 +87,39 @@ class CrudController extends Controller
 
 		$movie->quotes[0]->update($validator);
 		return redirect('/')->with('success', 'Movie updated');
+	}
+
+	public function editQuote($id)
+	{
+		$quote = Quote::find($id);
+		return view('components.edit-quote', [
+			'quote' => $quote,
+		]);
+	}
+
+	public function updateQuote($id)
+	{
+		$quote = Quote::find($id);
+		$validated = request()->validate([
+			'quote' => 'required',
+		]);
+
+		$quote->update($validated);
+
+		return redirect('/admin')->with('success', 'Quote updated');
+	}
+
+	public function destroyQuote($id)
+	{
+		$quote = Quote::find($id);
+		$quote->delete();
+		return redirect('/admin');
+	}
+
+	public function destroyMovie($id)
+	{
+		$movie = Movie::find($id);
+		$movie->delete();
+		return redirect('/admin');
 	}
 }

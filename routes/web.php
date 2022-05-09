@@ -30,3 +30,7 @@ Route::post('admin/movies', [CrudController::class, 'storeMovie'])->middleware('
 Route::post('admin/{id}', [CrudController::class, 'storeQuote'])->middleware('auth');
 Route::get('admin/movie/{id}/edit', [CrudController::class, 'editMovie'])->middleware('auth');
 Route::patch('admin/movie/{id}', [CrudController::class, 'updateMovie'])->middleware('auth');
+Route::delete('admin/movie/{id}', [CrudController::class, 'destroyMovie'])->middleware('auth');
+Route::get('admin/quote/{id}/edit', [CrudController::class, 'editQuote'])->middleware('auth');
+Route::patch('admin/quote/{id}', [CrudController::class, 'updateQuote'])->middleware('auth');
+Route::delete('admin/quote/{id}', [CrudController::class, 'destroyQuote'])->middleware('auth');

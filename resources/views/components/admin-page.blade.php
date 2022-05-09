@@ -23,13 +23,23 @@
                     <div class="aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
                         <img src="{{asset('storage/'.$movie->image)}}" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="w-full h-full object-center object-cover group-hover:opacity-75">
                     </div>
-                    <h3 class="mt-4 text-sm text-gray-700">{{$movie->name}}</h3>
-                    <p class="mt-1 text-lg font-medium text-gray-900">{{$movie->quotes[0]->quote}}</p>
+                    <h3 class="my-4 text-sm text-gray-700">{{$movie->name}}</h3>
+                    <p class=" text-lg font-medium text-gray-900">{{$movie->quotes[0]->quote}}</p>
                 </div>
                 <!-- More products... -->
             </div>
-            <div class="mt-4"> <a class="hover:bg-green-500 font-mono bg-green-200 p-2 rounded" href="/admin/movie/{{$movie->id}}/edit">Edit</a>
-                <a class="hover:bg-red-500 font-mono bg-red-200 mx-10 p-2 rounded" href="#">Delete</a></div>
+
+
+                <div class="flex my-6">
+                    <a class="hover:bg-green-500 font-mono bg-green-200 p-2 rounded" href="/admin/movie/{{$movie->id}}/edit">Edit</a>
+                    <form class="hover:bg-red-500 font-mono bg-red-200 mx-10 p-2 rounded" method="POST" action="/admin/movie/{{$movie->id}}">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="">Delete</button>
+                    </form>
+                </div>
+
+            </div>
         </div>
 
 
@@ -51,8 +61,6 @@
                             <table class="min-w-full divide-y divide-gray-300">
                                 <thead class="bg-gray-50">
                                 <tr>
-                                    <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Movie</th>
-                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Movie ID</th>
                                     <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Quote</th>
                                     <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Quote ID</th>
                                     <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
@@ -63,17 +71,19 @@
                                 <tbody class="divide-y divide-gray-200 bg-white">
                                 @foreach($movie->quotes as $quote)
                                 <tr>
-                                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{$movie->name}}</td>
-                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$movie->id}}</td>
                                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$quote->quote}}</td>
                                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$quote->id}}</td>
                                     <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                                        <a href="#" class="mx-4 text-indigo-600 hover:text-indigo-900">Delete</a>
+                                       <div class="flex">  <a href="/admin/quote/{{$quote->id}}/edit" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                           <form class="mx-4 text-red-700 hover:text-indigo-900" method="POST" action="/admin/quote/{{$quote->id}}">
+                                               @csrf
+                                               @method('DELETE')
+                                               <button type="submit" class="">Delete</button>
+                                           </form>
+                                       </div>
                                     </td>
                                 </tr>
                                 @endforeach
-                                <!-- More people... -->
                                 </tbody>
                             </table>
                         </div>
@@ -83,4 +93,10 @@
         </div>
    @endforeach
 </div>
+@if(session()->has('success'))
+    <div
+        class="fixed bg-blue-500 text-white py-2 px-4 rounded-xl bottom-3 right-3 text-sm">
+        <p>{{session('success')}}</p>
+    </div>
+@endif
 </body>
