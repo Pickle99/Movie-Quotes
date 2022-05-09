@@ -34,8 +34,8 @@
 
                 <!-- More products... -->
             </div>
-            <div class="mt-4"> <a class="hover:bg-green-500 font-mono bg-green-200 p-2 rounded" href="/admin/movies/edit/{id}">Edit</a>
-                <a class="hover:bg-blue-700 bg-blue-100 mx-10 font-mono p-2 rounded" href="/admin/movie/{{$movie->id}}">Add Quote</a>
+            <div class="mt-4"> <a class="hover:bg-green-500 font-mono bg-green-200 p-2 rounded" href="/admin/movie/{{$movie->id}}/edit">Edit</a>
+                <a class="hover:bg-blue-700 bg-blue-100 mx-10 font-mono p-2 rounded" href="/admin/movies/{{$movie->id}}">Add Quote</a>
                 <a class="hover:bg-red-500 font-mono bg-red-200 p-2 rounded" href="#">Delete</a></div>
 
         </div>

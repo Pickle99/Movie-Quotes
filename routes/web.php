@@ -18,11 +18,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MovieController::class, 'index'])->name('home');
 Route::get('movie/{id}', [MovieController::class, 'show'])->name('movie');
+
 Route::get('login', [SessionsController::class, 'create'])->name('login')->middleware('guest');
 Route::post('sessions', [SessionsController::class, 'store'])->name('sessions.store')->middleware('guest');
-Route::get('admin', [CrudController::class, 'index'])->name('admin.show')->middleware('auth');
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
-Route::get('admin/movies/create', [CrudController::class, 'create'])->middleware('auth');
-Route::get('admin/movie/{id}', [CrudController::class, 'show'])->middleware('auth');
-Route::post('admin/movies', [CrudController::class, 'store'])->middleware('auth');
-Route::post('admin/{id}', [CrudController::class, 'update'])->middleware('auth');
+
+Route::get('admin', [CrudController::class, 'index'])->name('admin.show')->middleware('auth');
+Route::get('admin/movies/create', [CrudController::class, 'createMovie'])->middleware('auth');
+Route::get('admin/movies/{id}', [CrudController::class, 'createQuote'])->middleware('auth');
+Route::post('admin/movies', [CrudController::class, 'storeMovie'])->middleware('auth');
+Route::post('admin/{id}', [CrudController::class, 'storeQuote'])->middleware('auth');
+Route::get('admin/movie/{id}/edit', [CrudController::class, 'editMovie'])->middleware('auth');
+Route::patch('admin/movie/{id}', [CrudController::class, 'updateMovie'])->middleware('auth');

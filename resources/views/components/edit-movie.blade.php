@@ -6,19 +6,20 @@
     <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
             <div class="px-4 sm:px-0 w-full ml-96">
-                <h3 class="text-lg font-medium leading-6 text-gray-900 text-center mt-10">Post New Movie</h3>
+                <h3 class="text-lg font-medium leading-6 text-gray-900 text-center mt-10">Edit Movie: {{$movie->name}} || Movie Id: {{$movie->id}}</h3>
             </div>
         </div>
         <div class="flex mt-40">
-            <form method="POST" action="/admin/movies" enctype="multipart/form-data">
+            <form method="POST" action="/admin/movie/{{$movie->id}}" enctype="multipart/form-data">
                 @csrf
+                @method('PATCH')
                 <div class="shadow sm:rounded-md sm:overflow-hidden">
                     <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                         <div class="grid grid-cols-3 gap-6">
                             <div class="col-span-3 sm:col-span-2">
                                 <label for="name" class="block text-sm font-medium text-gray-700"> Movie Name </label>
                                 <div class="mt-1 flex rounded-md shadow-sm">
-                                    <input type="text" value="{{old('name')}}" name="name" id="name" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" placeholder="Batman: Dark Knight">
+                                    <input type="text" value="{{$movie->name}}" name="name" id="name" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300">
                                 </div>
                                 @error('name')
                                 <p class="text-red-500 text-lg mt-2">
@@ -31,7 +32,7 @@
                         <div>
                             <label for="quote" class="block text-sm font-medium text-gray-700"> Main Quote for this Movie </label>
                             <div class="mt-1">
-                                <textarea id="quote" name="quote" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder='"Where are they?!"'>{{ old('quote') }}</textarea>
+                                <textarea id="quote" name="quote" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md">{{$movie->quotes[0]->quote}}</textarea>
                             </div>
                         </div>
 
@@ -44,6 +45,7 @@
                                         <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                     <div class="flex text-sm text-gray-600">
+
                                         <label for="image" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
                                             <span>Upload a file</span>
                                             <input id="image" name="image" type="file" class="sr-only">
@@ -53,6 +55,7 @@
                                     <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
                                 </div>
                             </div>
+                            <img class="w-48" src="{{asset('storage/'.$movie->image)}}" alt="img"/>
                             @error('image')
                             <p class="text-red-500 text-lg mt-2">
                                 {{$message}}

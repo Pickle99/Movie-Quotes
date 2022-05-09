@@ -7,21 +7,16 @@ use App\Models\Quote;
 
 class CrudController extends Controller
 {
-	public function create()
+	public function createMovie()
 	{
-//		$movie = Movie::all();
-//		$movie->quotes->movie_id = $movie->id;
-//		$movie = Movie::create();
-		return view('components.admin-create-page', [
-			//			'movie' => $movie->id,
-		]);
+		return view('components.admin-create-page');
 	}
 
-	public function store()
+	public function storeMovie()
 	{
 		$validated = request()->validate([
 			'name'  => 'required',
-			'image' => 'required',
+			'image' => 'required|image',
 		]);
 
 		$validator = request()->validate([
@@ -45,7 +40,7 @@ class CrudController extends Controller
 		]);
 	}
 
-	public function show($id)
+	public function createQuote($id)
 	{
 		$movie = Movie::find($id);
 		return view('components.admin-create-quote-page', [
@@ -53,7 +48,7 @@ class CrudController extends Controller
 		]);
 	}
 
-	public function update($id)
+	public function storeQuote($id)
 	{
 		$movie = Movie::find($id);
 
@@ -65,5 +60,32 @@ class CrudController extends Controller
 			'quote'    => $validated['quote'],
 		]);
 		return redirect('/');
+	}
+
+	public function editMovie($id)
+	{
+		$movie = Movie::find($id);
+		return view('components.edit-movie', [
+			'movie' => $movie,
+		]);
+	}
+
+	public function updateMovie($id)
+	{
+		$movie = Movie::find($id);
+		$validated = request()->validate([
+			'name'  => 'required',
+			'image' => 'required|image',
+		]);
+
+		$validator = request()->validate([
+			'quote' => 'required',
+		]);
+		$validated['image'] = request()->file('image')->store('images');
+
+		$movie->update($validated);
+
+		$movie->quotes[0]->update($validator);
+		return redirect('/')->with('success', 'Movie updated');
 	}
 }

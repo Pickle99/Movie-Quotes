@@ -10,6 +10,7 @@
             </div>
         </div>
         <div class="flex mt-40">
+            @if(!is_null($movie))
             <form method="POST" action="/admin/{{$movie->id}}" enctype="multipart/form-data">
                 @csrf
                 <div class="shadow sm:rounded-md sm:overflow-hidden">
@@ -38,6 +39,9 @@
                     </div>
                 </div>
             </form>
+            @else
+                <p class="text-3xl"> Movie with this id dont exist . . . </p>
+            @endif
         </div>
     </div>
 </div>
