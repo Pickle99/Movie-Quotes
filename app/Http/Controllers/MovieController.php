@@ -10,7 +10,7 @@ class MovieController extends Controller
 	{
 		$movie = Movie::inRandomOrder()->first();
 		$movieExist = Movie::all();
-
+		app()->setLocale('en');
 		return view('components.layout', [
 			'movie'      => $movie,
 			'movieExist' => $movieExist,

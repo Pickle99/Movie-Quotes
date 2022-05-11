@@ -15,19 +15,30 @@ class CrudController extends Controller
 	public function storeMovie()
 	{
 		$validated = request()->validate([
-			'name'  => 'required',
-			'image' => 'required|image',
+			'name_en' => 'required',
+			'name_ka' => 'required',
+			'image'   => 'required|image',
 		]);
 
 		$validator = request()->validate([
-			'title' => 'required',
+			'title_ka' => 'required',
+			'title_en' => 'required',
 		]);
-		$validated['image'] = request()->file('image')->store('images');
-		$movie = Movie::create($validated);
+//		$validated['image'] = request()->file('image')->store('images');
+		$movie = Movie::create([
+			'name' => [
+				'name_en' => $validated['name_en'],
+				'name_ka' => $validated['name_ka'],
+			],
+			'image' => request()->file('image')->store('images'),
+		]);
 
 		Quote::create([
 			'movie_id' => $movie->id,
-			'title'    => $validator['title'],
+			'title'    => [
+				'title_en' => $validator['title_en'],
+				'title_ka' => $validator['title_ka'],
+			],
 		]);
 		return redirect('/');
 	}
@@ -78,14 +89,10 @@ class CrudController extends Controller
 			'image' => 'required|image',
 		]);
 
-		$validator = request()->validate([
-			'title' => 'required',
-		]);
 		$validated['image'] = request()->file('image')->store('images');
 
 		$movie->update($validated);
 
-		$movie->quotes[0]->update($validator);
 		return redirect('/')->with('success', 'Movie updated');
 	}
 

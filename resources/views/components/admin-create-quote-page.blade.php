@@ -25,6 +25,8 @@
                             </div>
                         </div>
 
+
+
                         <div>
                             <label for="title" class="block text-sm font-medium text-gray-700"> Quote for this movie</label>
                             <div class="mt-1">

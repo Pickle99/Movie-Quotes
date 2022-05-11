@@ -23,9 +23,19 @@
 </div>
 @endauth
 
-<div class="w-full flex justify-center pt-56">
 
-    <div class="max-w-sm">
+
+
+<div class="fixed mt-80 ml-4 ">
+    <div class="mb-2">
+        <a href="" class="p-1 border rounded-3xl text-white text-lg">en</a>
+    </div>
+    <div class="">
+        <a href="" class="p-1 border rounded-3xl text-white text-lg">ka</a>
+    </div>
+</div>
+<div class="w-full flex justify-center pt-56">
+    <div class="max-w-sm flex">
 
            @if($movieExist->count())
             <div class="items-center">
@@ -35,10 +45,9 @@
                         <p class="pt-3 text-2xl text-white">no quotes yet . . .</p>
                     @else
 
-                        <p class="pt-3 text-2xl text-white">{{$movie->quotes[0]->title}}</p>
+                        <p class="pt-3 text-2xl text-white">"{{{$movie->quotes[0]->getTranslation("title", 'title_'.app()->getLocale())}}}"</p>
                     @endif
-                        <div class="mt-8"><a  class=" text-white underline text-2xl" href="/movie/{{$movie->id}}"> {{$movie->name}}</a></div>
-
+                        <div class="mt-8"><a  class=" text-white underline text-2xl" href="/movie/{{$movie->id}}"> {{$movie->getTranslation('name','name_'.app()->getLocale())}}</a></div>
                 </div>
             </div>
         @else

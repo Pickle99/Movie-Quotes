@@ -16,11 +16,25 @@
                     <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                         <div class="grid grid-cols-3 gap-6">
                             <div class="col-span-3 sm:col-span-2">
-                                <label for="name" class="block text-sm font-medium text-gray-700"> Movie Name </label>
+                                <label for="name_en" class="block text-sm font-medium text-gray-700"> Movie Name </label>
                                 <div class="mt-1 flex rounded-md shadow-sm">
-                                    <input type="text" value="{{old('name')}}" name="name" id="name" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" placeholder="Batman: Dark Knight">
+                                    <input type="text" value="{{old('name_en')}}" name="name_en" id="name_en" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" placeholder="Batman: The Dark Knight">
                                 </div>
-                                @error('name')
+                                @error('name_en')
+                                <p class="text-red-500 text-lg mt-2">
+                                    {{$message}}
+                                </p>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-6">
+                            <div class="col-span-3 sm:col-span-2">
+                                <label for="name_ka" class="block text-sm font-medium text-gray-700"> ფილმის სახელი </label>
+                                <div class="mt-1 flex rounded-md shadow-sm">
+                                    <input type="text" value="{{old('name_ka')}}" name="name_ka" id="name_ka" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" placeholder="ბეტმენი: ბნელი რაინდი">
+                                </div>
+                                @error('name_ge')
                                 <p class="text-red-500 text-lg mt-2">
                                     {{$message}}
                                 </p>
@@ -29,20 +43,31 @@
                         </div>
 
                         <div>
-                            <label for="title" class="block text-sm font-medium text-gray-700"> Main Quote for this Movie </label>
+                            <label for="title_en" class="block text-sm font-medium text-gray-700"> Main Quote for this Movie </label>
                             <div class="mt-1">
-                                <textarea id="title" name="title" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder='"Where are they?!"'>{{ old('title') }}</textarea>
+                                <textarea id="title_en" name="title_en" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder='"Where are they?!"'>{{ old('title_en') }}</textarea>
                             </div>
-                            @error('title')
+                            @error('title_en')
                             <p class="text-red-500 text-lg mt-2">
                                 {{$message}}
                             </p>
                             @enderror
                         </div>
 
+                        <div>
+                            <label for="title_ka" class="block text-sm font-medium text-gray-700"> ძირითადი ციტატა ამ ფილმისთვის</label>
+                            <div class="mt-1">
+                                <textarea id="title_ka" name="title_ka" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder='"Where are they?!"'>{{ old('title_ka') }}</textarea>
+                            </div>
+                            @error('title_ka')
+                            <p class="text-red-500 text-lg mt-2">
+                                {{$message}}
+                            </p>
+                            @enderror
+                        </div>
 
                         <div>
-                            <label class="block text-sm font-medium text-gray-700"> Cover photo </label>
+                            <label class="block text-sm font-medium text-gray-700"> Movie image / ფილმის სურათი </label>
                             <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                                 <div class="space-y-1 text-center">
                                     <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
@@ -50,7 +75,7 @@
                                     </svg>
                                     <div class="flex text-sm text-gray-600">
                                         <label for="image" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                                            <span>Upload a file</span>
+                                            <span>Upload a file / ფაილის ატვირთვა</span>
                                             <input id="image" name="image" type="file" class="sr-only">
                                         </label>
                                         <p class="pl-1">or drag and drop</p>
