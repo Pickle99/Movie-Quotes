@@ -10,7 +10,7 @@ class MovieController extends Controller
 	{
 		$movie = Movie::inRandomOrder()->first();
 		$movieExist = Movie::all();
-		app()->setLocale('en');
+
 		return view('components.layout', [
 			'movie'      => $movie,
 			'movieExist' => $movieExist,
@@ -23,7 +23,6 @@ class MovieController extends Controller
 	public function show($id)
 	{
 		$movie = Movie::find($id);
-
 		return view('components.show-quotes', [
 			'movie'  => $movie,
 		]);

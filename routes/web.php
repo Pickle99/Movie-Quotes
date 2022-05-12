@@ -34,3 +34,4 @@ Route::delete('admin/movie/{id}', [CrudController::class, 'destroyMovie'])->midd
 Route::get('admin/quote/{id}/edit', [CrudController::class, 'editQuote'])->middleware('auth');
 Route::patch('admin/quote/{id}', [CrudController::class, 'updateQuote'])->middleware('auth');
 Route::delete('admin/quote/{id}', [CrudController::class, 'destroyQuote'])->middleware('auth');
+Route::get('set-locale/{locale}', [SessionsController::class, 'update'])->middleware('check.locale');

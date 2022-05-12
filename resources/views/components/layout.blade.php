@@ -22,17 +22,20 @@
         </form>
 </div>
 @endauth
-
-
+{{ $language = session()->get('locale') }}
+{{app()->setLocale($language)}}
+<p>Current language : {{app()->getLocale()}}</p>
 
 
 <div class="fixed mt-80 ml-4 ">
     <div class="mb-2">
-        <a href="" class="p-1 border rounded-3xl text-white text-lg">en</a>
+        <a href="/set-locale/{{$locale = 'en'}}" class="p-1 border rounded-3xl text-white text-lg">en</a>
     </div>
-    <div class="">
-        <a href="" class="p-1 border rounded-3xl text-white text-lg">ka</a>
+
+    <div>
+        <a href="/set-locale/{{$locale = 'ka'}}" class="bg-white p-1 border rounded-3xl text-black text-lg">ka</a>
     </div>
+
 </div>
 <div class="w-full flex justify-center pt-56">
     <div class="max-w-sm flex">

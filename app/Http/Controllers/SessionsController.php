@@ -33,4 +33,10 @@ class SessionsController extends Controller
 		auth()->logout();
 		return redirect('/')->with('success', 'Bye :(');
 	}
+
+	public function update($locale)
+	{
+		session()->put('locale', $locale);
+		return redirect()->back();
+	}
 }
