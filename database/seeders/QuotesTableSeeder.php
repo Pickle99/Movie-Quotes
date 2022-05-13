@@ -15,65 +15,41 @@ class QuotesTableSeeder extends Seeder
 	public function run()
 	{
 		DB::table('quotes')->insert([[
-			'name'     => '"People Look Up To This Boy And Call Him A Hero. Well, Ill Tell You What I Call Him: Public Enemy Number One!"',
-			'image'    => '/storage/Spider Man No Way Home.jpg',
-			'movie_id' => '1',
+			'title'     => '{"title_en":"He succeeded in being considered totally uninteresting. People left him alone. And that was all he wanted.","title_ka":"მან მოახერხა სრულიად უინტერესოდ ჩაითვალოს. ხალხმა ის მარტო დატოვა. და ეს იყო ყველაფერი, რაც მას სურდა."}',
+			'movie_id'  => '1',
 		], [
-			'name'     => '"Hello, Peter."',
-			'image'    => '/storage/Spider Man No Way Home.jpg',
-			'movie_id' => '1',
+			'title'     => '{"title_en":"...talent means nothing, while experience, acquired in humility and with hard work, means everything.","title_ka":"...ნიჭი არაფერს ნიშნავს, თავმდაბლობითა და შრომით შეძენილი გამოცდილება კი ყველაფერს ნიშნავს."}',
+			'movie_id'  => '1',
 		], [
-			'name'     => '"Get On Your Phones, Scour The Internet, And Scooby Doo This Sh!T."',
-			'image'    => '/storage/Spider Man No Way Home.jpg',
-			'movie_id' => '1',
+			'title'     => '{"title_en":"Odors have a power of persuasion stronger than that of words, appearances, emotions, or will. The persuasive power of an odor cannot be fended off, it enters into us like breath into our lungs, it fills us up, imbues us totally. There is no remedy for it.","title_ka":"სუნს უფრო ძლიერი აქვს დარწმუნების ძალა, ვიდრე სიტყვების, გარეგნობის, ემოციების ან ნებისყოფის. სუნის დამაჯერებლობის ძალა არ შეიცვლება, ის ჩვენში სუნთქვის მსგავსად შემოდის ჩვენს ფილტვებში, გვავსებს, სრულყოფილად გვავსებს. ამის საშუალება არ არსებობს."}',
+			'movie_id'  => '1',
 		], [
-			'name'     => '"There are 3 kinds of people; the ones above, the ones below, and the ones who fall."',
-			'image'    => '/storage/Platform.jpg',
-			'movie_id' => '2',
+			'title'     => '{"title_en":"I Told You Skyler, I Warned You For A Solid Year: You Cross Me, And There Will Be Consequences.","title_ka":"მე გითხარი სკაილერ, მე გაგაფრთხილე ერთი წლის განმავლობაში: შენ გადამკვეთე და იქნება შედეგები."}',
+			'movie_id'  => '2',
 		], [
-			'name'     => '"This is not a good place for someone who likes reading."',
-			'image'    => '/storage/Platform.jpg',
-			'movie_id' => '2',
+			'title'     => '{"title_en":"If You Believe That Theres A Hell, Were Pretty Much Already Going There.","title_ka":"თუ გჯერათ, რომ არსებობს ჯოჯოხეთი, ჩვენ უკვე საკმაოდ დიდი რაოდენობით მივდივართ იქ."}',
+			'movie_id'  => '2',
 		], [
-			'name'     => '"Maybe. But is that important? Because we re the same now. You and I are murders. But Im more civilized."',
-			'image'    => '/storage/Platform.jpg',
-			'movie_id' => '2',
+			'title'     => '{"title_en":"Well, Technically Chemistry Is The Study Of Matter. But I Prefer To See It As The Study Of Change.","title_ka":"ისე, ტექნიკურად ქიმია არის მატერიის შესწავლა. მაგრამ მე მირჩევნია დავინახო ის, როგორც ცვლილების შესწავლა."}',
+			'movie_id'  => '2',
 		], [
-			'name'     => '"God expects no complaining on our part and offers no explanation on His part."',
-			'image'    => '/storage/Deep Sleep.jpg',
-			'movie_id' => '3',
+			'title'     => '{"title_en":"This is not a good place for someone who likes reading.","title_ka":"ეს არ არის კარგი ადგილი მათთვის, ვისაც კითხვა უყვარს."}',
+			'movie_id'  => '3',
 		], [
-			'name'     => '"The key is love, the action is service, and the joy is knowing the grandeur that is God in us and in everything."',
-			'image'    => '/storage/Deep Sleep.jpg',
-			'movie_id' => '3',
+			'title'     => '{"title_en":"Dont use my word again.","title_ka":"აღარ გამოიყენო ჩემი სიტყვა."}',
+			'movie_id'  => '3',
 		], [
-			'name'     => '"As many have observed, it is easy to tell a lie, but it is almost impossible to tell only one."',
-			'image'    => '/storage/Deep Sleep.jpg',
-			'movie_id' => '3',
+			'title'     => '{"title_en":"There are 3 kinds of people; the ones above, the ones below, and the ones who fall.","title_ka":"არსებობს 3 სახის ადამიანი; ზევით, ქვევით და ჩამოვარდნილთა."}',
+			'movie_id'  => '3',
 		], [
-			'name'     => '"...talent means nothing, while experience, acquired in humility and with hard work, means everything."',
-			'image'    => '/storage/Parfumer.jpg',
-			'movie_id' => '4',
+			'title'     => '{"title_en":"The key is love, the action is service, and the joy is knowing the grandeur that is God in us and in everything. ","title_ka":"მთავარი სიყვარულია, მოქმედება არის მსახურება და სიხარული არის სიდიადე შეცნობა, რომელიც არის ღმერთი ჩვენში და ყველაფერში."}',
+			'movie_id'  => '4',
 		], [
-			'name'     => '"Not a visible enthusiasm but a hidden one, an excitement burning with a cold flame."',
-			'image'    => '/storage/Parfumer.jpg',
-			'movie_id' => '4',
+			'title'     => '{"title_en":"We hire people who want to make the best things in the world.","title_ka":"ჩვენ ვქირაობთ ადამიანებს, რომელთაც სურთ გააკეთონ საუკეთესო რამ მსოფლიოში."}',
+			'movie_id'  => '4',
 		], [
-			'name'     => '"He possessed the power. He held it in his hand."',
-			'image'    => '/storage/Parfumer.jpg',
-			'movie_id' => '4',
-		], [
-			'name'     => '"If You Believe That Theres A Hell, We re Pretty Much Already Going There."',
-			'image'    => '/storage/Breaking Bad.jpg',
-			'movie_id' => '5',
-		], [
-			'name'     => '"Stay Out Of My Territory."',
-			'image'    => '/storage/Breaking Bad.jpg',
-			'movie_id' => '5',
-		], [
-			'name'     => '"My Name Is Walter Hartwell White. I Live At 308 Negra Aroya Lane, Albuquerque, New Mexico, 87104. To All Law Enforcement Entities, This Is Not An Admission Of Guilt. I Am Speaking To My Family Now."',
-			'image'    => '/storage/Breaking Bad.jpg',
-			'movie_id' => '5',
+			'title'     => '{"title_en":"I was then at the height of my two-facedness: that is, outside I seemed one way, inside I was another; outside false, inside true.","title_ka":"მე მაშინ ორსახეობის სიმაღლეზე ვიყავი: ანუ გარეთ ერთი გზა მეჩვენა, შიგნით სხვა; გარეთ ყალბი, შიგნით ჭეშმარიტი."}',
+			'movie_id'  => '4',
 		]]);
 	}
 }

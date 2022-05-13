@@ -89,8 +89,8 @@ class CrudController extends Controller
 	{
 		$movie = Movie::find($id);
 		$validated = request()->validate([
-			'name_en'  => 'max:20',
-			'name_ka'  => 'max:20',
+			'name_en'  => 'max:150',
+			'name_ka'  => 'max:150',
 			'image'    => 'required|image',
 		]);
 
