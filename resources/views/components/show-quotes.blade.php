@@ -1,4 +1,5 @@
 <x-layout>
+    <a class="mx-10 border rounded-3xl p-2 font-sansation text-lg text-white hover:bg-indigo-700" href="/">go back</a>
     <p class="hidden">{{ $language = session()->get('locale') }}</p>
     {{app()->setLocale($language)}}
 
@@ -37,7 +38,7 @@
             </div>
 
         </div>
-{{--    </div>--}}
+            </div>
     </x-movie-container-pt>
-{{--</div>--}}
+
 </x-layout>
