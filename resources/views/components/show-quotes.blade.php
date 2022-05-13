@@ -8,8 +8,8 @@
 
             <div class="text-center">
                 @if(!is_null($movie))
-              <div>
-                  <p class="pb-20 text-white text-3xl">{{ $movie->name }}</p>
+              <div class="flex justify-start">
+                  <p class="pb-1 text-white text-3xl">{{$movie->getTranslation('name','name_'.app()->getLocale())}}</p>
               </div>
              <div>
 
