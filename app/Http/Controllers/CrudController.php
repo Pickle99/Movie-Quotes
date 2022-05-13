@@ -9,7 +9,7 @@ class CrudController extends Controller
 {
 	public function createMovie()
 	{
-		return view('components.admin-create-page');
+		return view('admin.admin-create-page');
 	}
 
 	public function storeMovie()
@@ -24,7 +24,7 @@ class CrudController extends Controller
 			'title_ka' => 'required',
 			'title_en' => 'required',
 		]);
-//		$validated['image'] = request()->file('image')->store('images');
+
 		$movie = Movie::create([
 			'name' => [
 				'name_en' => $validated['name_en'],
@@ -46,7 +46,7 @@ class CrudController extends Controller
 	public function index()
 	{
 		$movies = Movie::all();
-		return view('components.admin-page', [
+		return view('admin.admin-page', [
 			'movies' => $movies,
 		]);
 	}
@@ -54,7 +54,7 @@ class CrudController extends Controller
 	public function createQuote($id)
 	{
 		$movie = Movie::find($id);
-		return view('components.admin-create-quote-page', [
+		return view('admin.admin-create-quote-page', [
 			'movie' => $movie,
 		]);
 	}
@@ -64,11 +64,15 @@ class CrudController extends Controller
 		$movie = Movie::find($id);
 
 		$validated = request()->validate([
-			'title'    => 'required',
+			'title_en'    => 'required',
+			'title_ka'    => 'required',
 		]);
 		Quote::create([
 			'movie_id' => $movie->id,
-			'title'    => $validated['title'],
+			'title'    => [
+				'title_en' => $validated['title_en'],
+				'title_ka' => $validated['title_ka'],
+			],
 		]);
 		return redirect('admin');
 	}
@@ -76,7 +80,7 @@ class CrudController extends Controller
 	public function editMovie($id)
 	{
 		$movie = Movie::find($id);
-		return view('components.edit-movie', [
+		return view('admin.edit-movie', [
 			'movie' => $movie,
 		]);
 	}
@@ -85,13 +89,18 @@ class CrudController extends Controller
 	{
 		$movie = Movie::find($id);
 		$validated = request()->validate([
-			'name'  => 'required',
-			'image' => 'required|image',
+			'name_en'  => 'max:20',
+			'name_ka'  => 'max:20',
+			'image'    => 'required|image',
 		]);
 
-		$validated['image'] = request()->file('image')->store('images');
-
-		$movie->update($validated);
+		$movie->update([
+			'name' => [
+				'name_en' => $validated['name_en'],
+				'name_ka' => $validated['name_ka'],
+			],
+			'image'   => request()->file('image')->store('images'),
+		]);
 
 		return redirect('/')->with('success', 'Movie updated');
 	}
@@ -99,7 +108,7 @@ class CrudController extends Controller
 	public function editQuote($id)
 	{
 		$quote = Quote::find($id);
-		return view('components.edit-quote', [
+		return view('admin.edit-quote', [
 			'quote' => $quote,
 		]);
 	}
@@ -108,10 +117,16 @@ class CrudController extends Controller
 	{
 		$quote = Quote::find($id);
 		$validated = request()->validate([
-			'title' => 'required',
+			'title_en' => 'max:255',
+			'title_ka' => 'max:255',
 		]);
 
-		$quote->update($validated);
+		$quote->update([
+			'title' => [
+				'title_en' => $validated['title_en'],
+				'title_ka' => $validated['title_ka'],
+			],
+		]);
 
 		return redirect('/admin')->with('success', 'Quote updated');
 	}

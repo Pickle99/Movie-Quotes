@@ -43,7 +43,7 @@
                         </div>
 
                         <div>
-                            <label for="title_en" class="block text-sm font-medium text-gray-700"> Main Quote for this Movie </label>
+                            <label for="title_en" class="block text-sm font-medium text-gray-700"> Quote for this Movie </label>
                             <div class="mt-1">
                                 <textarea id="title_en" name="title_en" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder='"Where are they?!"'>{{ old('title_en') }}</textarea>
                             </div>
@@ -55,7 +55,7 @@
                         </div>
 
                         <div>
-                            <label for="title_ka" class="block text-sm font-medium text-gray-700"> ძირითადი ციტატა ამ ფილმისთვის</label>
+                            <label for="title_ka" class="block text-sm font-medium text-gray-700"> ციტატა ამ ფილმისთვის</label>
                             <div class="mt-1">
                                 <textarea id="title_ka" name="title_ka" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder='"Where are they?!"'>{{ old('title_ka') }}</textarea>
                             </div>

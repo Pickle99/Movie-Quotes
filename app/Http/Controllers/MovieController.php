@@ -11,7 +11,7 @@ class MovieController extends Controller
 		$movie = Movie::inRandomOrder()->first();
 		$movieExist = Movie::all();
 
-		return view('components.layout', [
+		return view('components.random-quote', [
 			'movie'      => $movie,
 			'movieExist' => $movieExist,
 		]);

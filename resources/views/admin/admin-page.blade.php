@@ -23,10 +23,12 @@
                     <div class="aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
                         <img src="{{asset('storage/'.$movie->image)}}" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="w-full h-full object-center object-cover group-hover:opacity-75">
                     </div>
-                    <h3 class="my-4 text-sm text-gray-700">{{$movie->name}}</h3>
+                    <h3 class="my-4 text-sm text-gray-700">{{$movie->getTranslation('name','name_en')}}</h3>
+                    <h3 class="my-4 text-sm text-gray-700">{{$movie->getTranslation('name','name_ka')}}</h3>
                     @if($movie->quotes->count())
 
-                        <p class=" text-lg font-medium text-gray-900">{{$movie->quotes[0]->title}}</p>
+                        <p class=" text-lg font-medium mb-6 text-gray-900">{{$movie->quotes[random_int(0, count($movie->quotes)-1)]->getTranslation('title', 'title_en')}}</p>
+                        <p class=" text-lg font-medium text-gray-900">{{$movie->quotes[random_int(0, count($movie->quotes)-1)]->getTranslation('title', 'title_ka')}}</p>
                     @else
                         <p class=" text-2xl text-bold">no quotes yet . . .</p>
 
@@ -52,8 +54,8 @@
 <div class="px-4 sm:px-6 lg:px-8 border-b-8">
     <div class="sm:flex sm:items-center">
         <div class="sm:flex-auto">
-            <h1 class="text-xl font-semibold text-gray-900">{{$movie->name}} all Quotes</h1>
-            <p class="mt-2 text-sm text-gray-700">A list of all quotes of movie called {{$movie->name}}</p>
+            <h1 class="text-xl font-semibold text-gray-900">{{$movie->getTranslation('name', 'name_'.app()->getLocale())}} all Quotes</h1>
+            <p class="mt-2 text-sm text-gray-700">A list of all quotes of movie called {{$movie->getTranslation('name', 'name_'.app()->getLocale())}}</p>
         </div>
         <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
             {{--                    <a class="hover:bg-blue-700 bg-blue-100 mx-10 font-mono p-2 rounded" href="/admin/movies/{{$movie->id}}">Add Quote</a>--}}
@@ -67,7 +69,8 @@
                     <table class="min-w-full divide-y divide-gray-300">
                         <thead class="bg-gray-50">
                         <tr>
-                            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Quote</th>
+                            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Quote EN</th>
+                            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Quote KA</th>
                             <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Quote ID</th>
                             <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
                                 <span class="sr-only">Edit</span>
@@ -77,7 +80,8 @@
                         <tbody class="divide-y divide-gray-200 bg-white">
                         @foreach($movie->quotes as $quote)
                             <tr>
-                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$quote->title}}</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$quote->getTranslation('title', 'title_en')}}</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$quote->getTranslation('title', 'title_ka')}}</td>
                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$quote->id}}</td>
                                 <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                                     <div class="flex">  <a href="/admin/quote/{{$quote->id}}/edit" class="text-indigo-600 hover:text-indigo-900">Edit</a>

@@ -17,20 +17,10 @@ class LocaleSet
 	 */
 	public function handle(Request $request, Closure $next)
 	{
-		//		if ($request->input('locale') === 'en')
-//		{
-//			return redirect('/english');
-//		}
-//
-//		if ($request->input('locale') === 'ka')
-//		{
-//			return redirect('/georgian');
-//		}
 		if (session()->has('locale'))
 		{
 			$lang = session()->get('locale');
 			app()->setLocale($lang);
-//			return redirect('/');
 		}
 		return $next($request);
 	}

@@ -6,7 +6,7 @@
     <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
             <div class="px-4 sm:px-0 w-full ml-96">
-                <h3 class="text-lg font-medium leading-6 text-gray-900 text-center mt-10">Edit Movie: {{$movie->name}} || Movie Id: {{$movie->id}}</h3>
+                <h3 class="text-lg font-medium leading-6 text-gray-900 text-center mt-10">Edit (Id: {{$movie->id}}) Movie</h3>
             </div>
         </div>
         <div class="flex mt-40">
@@ -17,11 +17,11 @@
                     <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                         <div class="grid grid-cols-3 gap-6">
                             <div class="col-span-3 sm:col-span-2">
-                                <label for="name" class="block text-sm font-medium text-gray-700"> Movie Name </label>
+                                <label for="name_en" class="block text-sm font-medium text-gray-700"> Movie Name </label>
                                 <div class="mt-1 flex rounded-md shadow-sm">
-                                    <input type="text" value="{{$movie->name}}" name="name" id="name" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300">
+                                    <input type="text" value="{{$movie->getTranslation('name','name_en')}}" name="name_en" id="name_en" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300">
                                 </div>
-                                @error('name')
+                                @error('name_en')
                                 <p class="text-red-500 text-lg mt-2">
                                     {{$message}}
                                 </p>
@@ -29,17 +29,17 @@
                             </div>
                         </div>
 
-{{--                        <div>--}}
-{{--                            <label for="title" class="block text-sm font-medium text-gray-700"> Main Quote for this Movie </label>--}}
-{{--                            <div class="mt-1">--}}
-{{--                                <textarea id="title" name="title" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md">{{$movie->quotes[0]->title}}</textarea>--}}
-{{--                            </div>--}}
-{{--                            @error('title')--}}
-{{--                            <p class="text-red-500 text-lg mt-2">--}}
-{{--                                {{$message}}--}}
-{{--                            </p>--}}
-{{--                            @enderror--}}
-{{--                        </div>--}}
+           <div>
+               <label for="name_ka" class="block text-sm font-medium text-gray-700"> ფილმის სახელი </label>
+               <div class="mt-1 flex rounded-md shadow-sm">
+                   <input type="text" value="{{$movie->getTranslation('name','name_ka')}}" name="name_ka" id="name_ka" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300">
+               </div>
+               @error('name_ka')
+               <p class="text-red-500 text-lg mt-2">
+                   {{$message}}
+               </p>
+               @enderror
+           </div>
 
 
                         <div>
@@ -52,15 +52,15 @@
                                     <div class="flex text-sm text-gray-600">
 
                                         <label for="image" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                                            <span>Upload a file</span>
-                                            <input id="image" name="image" type="file" class="sr-only">
+                                            <span>Upload a new file</span>
+                                            <input id="image" name="image" src="{{asset('storage/'.$movie->image)}}" type="file" class="sr-only">
                                         </label>
                                         <p class="pl-1">or drag and drop</p>
                                     </div>
                                     <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
                                 </div>
                             </div>
-                            <img class="w-48" src="{{asset('storage/'.$movie->image)}}" alt="img"/>
+                            <div class="pt-10 flex"><p class="pr-16">Current image:</p><img class="w-48" src="{{asset('storage/'.$movie->image)}}" alt="img"/></div>
                             @error('image')
                             <p class="text-red-500 text-lg mt-2">
                                 {{$message}}
