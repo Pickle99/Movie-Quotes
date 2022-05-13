@@ -1,8 +1,11 @@
 <!doctype HTML>
 
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+<link href="{{asset('css/app.css')}}" rel="stylesheet"/>
+<link href="http://fonts.cdnfonts.com/css/sansation" rel="stylesheet">
+<body class="bg-onepiece font-sansation">
 
-<body class="bg-gray-500">
+
 
 @auth()
     <div class="mt-4 flex justify-end">
@@ -14,7 +17,6 @@
         <form method="POST" action="/logout">
             @csrf
 
-
             <div class="hover:bg-red-300 mx-20 bg-red-50 px-3.5 rounded-xl">
                 <button type="submit" class="text-xl">Log Out</button>
             </div>
@@ -22,10 +24,6 @@
         </form>
 </div>
 @endauth
-{{--{{ $language = session()->get('locale') }}--}}
-{{--{{app()->setLocale($language)}}--}}
-{{--<p>Current language : {{app()->getLocale()}}</p>--}}
-
 
 <div class="fixed mt-80 ml-4 ">
     <div class="mb-2">
@@ -37,7 +35,6 @@
     </div>
 
 </div>
-
 
          {{ $slot }}
 

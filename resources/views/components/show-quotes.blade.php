@@ -1,8 +1,9 @@
 <x-layout>
-    {{ $language = session()->get('locale') }}
+    <p class="hidden">{{ $language = session()->get('locale') }}</p>
     {{app()->setLocale($language)}}
-    <x-movie-container-pt class="pt-20">
-            <div class="max-w-sm">
+
+    <x-movie-container-pt class="pt-12">
+            <div class="max-w-[40rem]">
         <div class="items-center pb-40">
 
             <div class="text-center">
@@ -16,14 +17,14 @@
 
                          <div class="my-12">
                              <img src="{{asset('storage/'.$movie->image)}}" alt="img">
-                             <p class="py-4 bg-red-50 rounded"> Quotes for this movie dont exist yet ...</p>
+                             <p class="py-4 text-3xl bg-red-50 rounded"> Quotes for this movie dont exist yet ...</p>
                          </div>
 
                  @else
                      @foreach($movie->quotes as $quote)
                          <div class="my-12">
                              <img src="{{asset('storage/'.$movie->image)}}" alt="img">
-                             <p class="py-4 bg-red-50 rounded"> {{$quote->getTranslation('title', 'title_'.app()->getLocale())}}</p>
+                             <p class="py-4 text-lg bg-red-50 rounded"> {{$quote->getTranslation('title', 'title_'.app()->getLocale())}}</p>
                          </div>
                      @endforeach
                  @endif
