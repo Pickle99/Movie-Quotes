@@ -24,7 +24,7 @@
                      @foreach($movie->quotes as $quote)
                          <div class="my-12">
                              <img src="{{asset('storage/'.$movie->image)}}" alt="img">
-                             <p class="py-4 text-lg bg-red-50 rounded"> {{$quote->getTranslation('title', 'title_'.app()->getLocale())}}</p>
+                             <p class="py-4 px-2 text-lg bg-red-50 rounded"> {{$quote->getTranslation('title', 'title_'.app()->getLocale())}}</p>
                          </div>
                      @endforeach
                  @endif
