@@ -1,12 +1,10 @@
-<!doctype HTML>
-<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-<body class="bg-gray-100">
 
+ <x-layout>
 <div>
     <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
             <div class="px-4 sm:px-0 w-full ml-96">
-                <h3 class="text-lg font-medium leading-6 text-gray-900 text-center mt-10">Edit (Id: {{$movie->id}}) Movie</h3>
+                <h3 class="text-lg font-medium leading-6 text-white text-center mt-10">Edit (Id: {{$movie->id}}) Movie</h3>
             </div>
         </div>
         <div class="flex mt-40">
@@ -78,6 +76,4 @@
 </div>
 
 
-
-
-</body>
+</x-layout>

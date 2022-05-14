@@ -31,6 +31,7 @@ Route::get('admin/movie/{id}/edit', [MovieController::class, 'edit'])->name('mov
 Route::patch('admin/movie/{id}', [MovieController::class, 'update'])->name('movie.update')->middleware('auth');
 Route::delete('admin/movie/{id}', [MovieController::class, 'destroy'])->name('movie.destroy')->middleware('auth');
 
+Route::get('admin/quotes/{id}', [QuoteController::class, 'index'])->name('quotes.index')->middleware('auth');
 Route::get('admin/movies/{id}', [QuoteController::class, 'create'])->name('quote.create')->middleware('auth');
 Route::post('admin/{id}', [QuoteController::class, 'store'])->name('quote.store')->middleware('auth');
 Route::get('admin/quote/{id}/edit', [QuoteController::class, 'edit'])->name('quote.edit')->middleware('auth');

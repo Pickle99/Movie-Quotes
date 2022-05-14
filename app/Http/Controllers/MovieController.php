@@ -10,14 +10,14 @@ class MovieController extends Controller
 	public function index()
 	{
 		$movies = Movie::all();
-		return view('admin.admin-page', [
+		return view('admin.index', [
 			'movies' => $movies,
 		]);
 	}
 
 	public function create()
 	{
-		return view('admin.admin-create-page');
+		return view('admin.create-movie');
 	}
 
 	public function store()

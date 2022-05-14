@@ -1,11 +1,12 @@
 <!doctype HTML>
-
+<head>
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 <link href="{{asset('css/app.css')}}" rel="stylesheet"/>
 <link href="http://fonts.cdnfonts.com/css/sansation" rel="stylesheet">
+    <title>Movie Quotes</title>
+</head>
+
 <body class="bg-onepiece font-sansation">
-
-
 
 @auth()
     <div class="mt-4 flex justify-end">
@@ -33,7 +34,6 @@
     <div>
         <a href="/set-locale/{{$locale = 'ka'}}" class="{{app()->getLocale() === 'ka' ? 'p-1 border rounded-3xl text-black text-lg bg-white' : 'p-1 border rounded-3xl text-white text-lg'}}">ka</a>
     </div>
-
 </div>
 
          {{ $slot }}

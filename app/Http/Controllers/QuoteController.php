@@ -7,10 +7,20 @@ use App\Models\Quote;
 
 class QuoteController extends Controller
 {
+	public function index($id)
+	{
+		$quotes = Quote::all();
+		$movie = Movie::find($id);
+		return view('admin.all-quotes', [
+			'quotes' => $quotes,
+			'movie'  => $movie,
+		]);
+	}
+
 	public function create($id)
 	{
 		$movie = Movie::find($id);
-		return view('admin.admin-create-quote-page', [
+		return view('admin.create-quote', [
 			'movie' => $movie,
 		]);
 	}
