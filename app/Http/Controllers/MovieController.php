@@ -23,14 +23,14 @@ class MovieController extends Controller
 	public function store()
 	{
 		$validated = request()->validate([
-			'name_en' => 'required',
-			'name_ka' => 'required',
+			'name_en' => 'required|unique:movies,name->name_en',
+			'name_ka' => 'required|unique:movies,name->name_ka',
 			'image'   => 'required|image',
 		]);
 
 		$validator = request()->validate([
-			'title_ka' => 'required',
-			'title_en' => 'required',
+			'title_en' => 'required|unique:quotes,title->title_en',
+			'title_ka' => 'required|unique:quotes,title->title_ka',
 		]);
 
 		$movie = Movie::create([

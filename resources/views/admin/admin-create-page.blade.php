@@ -34,7 +34,7 @@
                                 <div class="mt-1 flex rounded-md shadow-sm">
                                     <input type="text" value="{{old('name_ka')}}" name="name_ka" id="name_ka" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" placeholder="ბეტმენი: ბნელი რაინდი">
                                 </div>
-                                @error('name_ge')
+                                @error('name_ka')
                                 <p class="text-red-500 text-lg mt-2">
                                     {{$message}}
                                 </p>
@@ -76,7 +76,7 @@
                                     <div class="flex text-sm text-gray-600">
                                         <label for="image" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
                                             <span>Upload a file / ფაილის ატვირთვა</span>
-                                            <input id="image" name="image" type="file" class="sr-only">
+                                            <input id="image" name="image" type="file"  class="sr-only">
                                         </label>
                                         <p class="pl-1">or drag and drop</p>
                                     </div>
