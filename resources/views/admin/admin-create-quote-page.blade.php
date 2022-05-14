@@ -39,7 +39,7 @@
                             <div class="mt-1">
                                 <textarea id="title_en" name="title_en" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder='"example"'>{{ old('title_en') }}</textarea>
                             </div>
-                            @error('title')
+                            @error('title_en')
                             <p class="text-red-500 text-lg mt-2">
                                 {{$message}}
                             </p>
@@ -51,7 +51,7 @@
                             <div class="mt-1">
                                 <textarea id="title_ka" name="title_ka" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder='"მაგალითი"'>{{ old('title_ka') }}</textarea>
                             </div>
-                            @error('title')
+                            @error('title_ka')
                             <p class="text-red-500 text-lg mt-2">
                                 {{$message}}
                             </p>

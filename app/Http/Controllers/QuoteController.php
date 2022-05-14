@@ -20,8 +20,8 @@ class QuoteController extends Controller
 		$movie = Movie::find($id);
 
 		$validated = request()->validate([
-			'title_en'    => 'required',
-			'title_ka'    => 'required',
+			'title_en' => 'max:255|required|unique:quotes,title->title_en',
+			'title_ka' => 'max:255|required|unique:quotes,title->title_ka',
 		]);
 		Quote::create([
 			'movie_id' => $movie->id,
@@ -45,8 +45,8 @@ class QuoteController extends Controller
 	{
 		$quote = Quote::find($id);
 		$validated = request()->validate([
-			'title_en' => 'max:255',
-			'title_ka' => 'max:255',
+			'title_en' => 'max:255|required|unique:quotes,title->title_en,' . $quote->id,
+			'title_ka' => 'max:255|required|unique:quotes,title->title_ka,' . $quote->id,
 		]);
 
 		$quote->update([

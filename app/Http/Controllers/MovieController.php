@@ -63,8 +63,8 @@ class MovieController extends Controller
 	{
 		$movie = Movie::find($id);
 		$validated = request()->validate([
-			'name_en'  => 'max:150',
-			'name_ka'  => 'max:150',
+			'name_en'  => 'max:100|unique:movies,name->name_en,' . $movie->id,
+			'name_ka'  => 'max:100|unique:movies,name->name_ka,' . $movie->id,
 			'image'    => 'required|image',
 		]);
 
