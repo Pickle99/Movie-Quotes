@@ -1,5 +1,5 @@
 <x-layout>
-    <p class="hidden">{{ $language = session()->get('locale') }}</p>
+    <p class="hidden">{{ $language = session()->get('locale') ?? 'en' }}</p>
      {{app()->setLocale($language)}}
 
     <x-movie-container-pt class="mt-44">

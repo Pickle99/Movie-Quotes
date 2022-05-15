@@ -1,5 +1,5 @@
 <x-layout>
-    <p class="hidden">{{ $language = session()->get('locale') }}</p>
+    <p class="hidden">{{ $language = session()->get('locale') ?? 'en'}}</p>
     {{app()->setLocale($language)}}
     <div class="m-40">
         <div class="px-4 sm:px-6 lg:px-8 border-b-8">
@@ -19,8 +19,7 @@
                             <table class="min-w-full divide-y divide-gray-300">
                                 <thead class="bg-gray-50">
                                 <tr>
-                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Quote EN</th>
-                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Quote KA</th>
+                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Quote</th>
                                     <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Quote ID</th>
                                     <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
                                         <span class="sr-only">Edit</span>
@@ -30,8 +29,7 @@
                                 <tbody class="divide-y divide-gray-200 bg-white">
                                 @foreach($movie->quotes as $quote)
                                     <tr>
-                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$quote->getTranslation('title', 'title_en')}}</td>
-                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$quote->getTranslation('title', 'title_ka')}}</td>
+                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$movie->quotes[random_int(0, count($movie->quotes)-1)]->getTranslation('title', 'title_'.app()->getLocale())}}</td>
                                         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$quote->id}}</td>
                                         <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                                             <div class="flex">  <a href="/admin/quote/{{$quote->id}}/edit" class="text-indigo-600 hover:text-indigo-900">Edit</a>

@@ -7,7 +7,6 @@
 </head>
 
 <body class="bg-onepiece font-sansation">
-
 @auth()
     <div class="mt-4 flex justify-end">
 
