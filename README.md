@@ -4,6 +4,9 @@ This is a two page project. On the first page, we can see one random movie with 
 
 _________________________
 
+- **[DrawSql diagram link](https://drawsql.app/redberry-22/diagrams/first-diagram-for-assignment-1#)**
+____
+
 ## Table of Contents
 <ul>
 <li><a href="#prereq">Prerequisites</a></li>
@@ -91,7 +94,7 @@ ____________
 __________
 
 
-## Development
+### Development
 <p id="develop">You can run Laravel's built-in development server by executing:</p>
 <code>php artisan serve</code>
 <p>when working on JS you may run:</p>
@@ -99,3 +102,8 @@ __________
 <p>it builds your js files into executable scripts. If you want to watch files during development, execute instead:</p>
 <code>npm run watch</code>
 <p>it will watch JS files and on change it'll rebuild them, so you don't have to manually build them.</p>
+
+_____
+
+
+
