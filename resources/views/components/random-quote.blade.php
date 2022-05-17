@@ -6,7 +6,7 @@
         <div class="max-w-[35rem] flex">
     @if($movieExist->count())
         <div class="items-center">
-        <div class="flex">  <img src="{{ asset('storage/'.$movie->image) }}" alt="img"></div>
+        <div class="flex">  <img src="{{ asset($movie->image) }}" alt="img"></div>
             <div class="text-center mt-12">
                 @if(!$movie->quotes->count())
                     <p class="pt-3 text-2xl text-white">no quotes yet . . .</p>

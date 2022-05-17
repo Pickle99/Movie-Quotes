@@ -38,7 +38,7 @@ class MovieController extends Controller
 				'name_en' => $validated['name_en'],
 				'name_ka' => $validated['name_ka'],
 			],
-			'image' => request()->file('image')->store('images'),
+			'image' => 'storage/' . request()->file('image')->store('images'),
 		]);
 
 		Quote::create([

@@ -58,7 +58,7 @@
                                     <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
                                 </div>
                             </div>
-                            <div class="pt-10 flex"><p class="pr-16">Current image:</p><img class="w-48" src="{{asset('storage/'.$movie->image)}}" alt="img"/></div>
+                            <div class="pt-10 flex"><p class="pr-16">Current image:</p><img class="w-48" src="{{asset($movie->image)}}" alt="img"/></div>
                             @error('image')
                             <p class="text-red-500 text-lg mt-2">
                                 {{$message}}

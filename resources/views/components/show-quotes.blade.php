@@ -17,14 +17,14 @@
                     @if(!$movie->quotes->count())
 
                          <div class="my-12">
-                             <img src="{{asset('storage/'.$movie->image)}}" alt="img">
+                             <img src="{{asset($movie->image)}}" alt="img">
                              <p class="py-4 text-3xl bg-red-50 rounded"> Quotes for this movie dont exist yet ...</p>
                          </div>
 
                  @else
                      @foreach($movie->quotes as $quote)
                          <div class="my-12">
-                             <img src="{{asset('storage/'.$movie->image)}}" alt="img">
+                             <img src="{{asset($movie->image)}}" alt="img">
                              <p class="py-4 px-2 text-lg bg-red-50 rounded"> {{$quote->getTranslation('title', 'title_'.app()->getLocale())}}</p>
                          </div>
                      @endforeach
