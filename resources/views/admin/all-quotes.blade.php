@@ -1,6 +1,4 @@
 <x-layout>
-    <p class="hidden">{{ $language = session()->get('locale') ?? 'en'}}</p>
-    {{app()->setLocale($language)}}
     <div class="m-40">
         <div class="px-4 sm:px-6 lg:px-8 border-b-8">
             <div class="sm:flex sm:items-center">

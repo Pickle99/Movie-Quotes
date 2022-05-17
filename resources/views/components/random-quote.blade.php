@@ -1,6 +1,4 @@
 <x-layout>
-    <p class="hidden">{{ $language = session()->get('locale') ?? 'en' }}</p>
-     {{app()->setLocale($language)}}
 
     <x-movie-container-pt class="mt-44">
         <div class="max-w-[35rem] flex">

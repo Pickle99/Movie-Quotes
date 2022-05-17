@@ -38,4 +38,4 @@ Route::get('admin/quote/{id}/edit', [QuoteController::class, 'edit'])->name('quo
 Route::patch('admin/quote/{id}', [QuoteController::class, 'update'])->name('quote.update')->middleware('admin');
 Route::delete('admin/quote/{id}', [QuoteController::class, 'destroy'])->name('quote.destroy')->middleware('admin');
 
-Route::get('set-locale/{locale}', [SessionsController::class, 'update'])->name('set.locale')->middleware('check.locale');
+Route::get('set-locale/{locale}', [SessionsController::class, 'update'])->name('set.locale');

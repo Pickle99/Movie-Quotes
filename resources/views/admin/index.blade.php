@@ -1,7 +1,5 @@
 <x-layout>
     <div class="m-40">
-        <p class="hidden">{{ $language = session()->get('locale') ?? 'en' }}</p>
-        {{app()->setLocale($language)}}
       <div class="mb-10"><a href="/admin/movies/create" class="hover:bg-green-200 bg-white p-1 rounded-full text-2xl text-gray-700">Add Movie</a></div>
     <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         @foreach($movies as $movie)

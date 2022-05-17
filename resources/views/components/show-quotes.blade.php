@@ -1,8 +1,5 @@
 <x-layout>
-    <a class="mx-10 border rounded-3xl p-2 font-sansation text-lg text-white hover:bg-indigo-700" href="/">go back</a>
-    <p class="hidden">{{ $language = session()->get('locale') ?? 'en' }}</p>
-    {{app()->setLocale($language)}}
-
+    <div class="mt-20"><a class=" mx-10 border rounded-3xl p-2 font-sansation text-lg text-white hover:bg-indigo-700" href="/">go back</a></div>
     <x-movie-container-pt class="pt-12">
             <div class="max-w-[40rem]">
         <div class="items-center pb-40">

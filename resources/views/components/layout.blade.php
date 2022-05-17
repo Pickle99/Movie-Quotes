@@ -27,11 +27,11 @@
 
 <div class="fixed mt-80 ml-4 ">
     <div class="mb-2">
-        <a href="/set-locale/{{$locale = 'en'}}" class="{{app()->getLocale() === 'en' ? 'p-1 border rounded-3xl text-black text-lg bg-white' : 'p-1 border rounded-3xl text-white text-lg'}}">en</a>
+        <a href='/set-locale/en' class="{{app()->getLocale() === 'en' ? 'p-1 border rounded-3xl text-black text-lg bg-white' : 'p-1 border rounded-3xl text-white text-lg'}}">en</a>
     </div>
 
     <div>
-        <a href="/set-locale/{{$locale = 'ka'}}" class="{{app()->getLocale() === 'ka' ? 'p-1 border rounded-3xl text-black text-lg bg-white' : 'p-1 border rounded-3xl text-white text-lg'}}">ka</a>
+        <a href='/set-locale/ka' class="{{app()->getLocale() === 'ka' ? 'p-1 border rounded-3xl text-black text-lg bg-white' : 'p-1 border rounded-3xl text-white text-lg'}}">ka</a>
     </div>
 </div>
 

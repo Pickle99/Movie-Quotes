@@ -19,8 +19,15 @@ class LocaleSet
 	{
 		if (session()->has('locale'))
 		{
-			$lang = session()->get('locale');
-			app()->setLocale($lang);
+			if (session()->get('locale') != null)
+			{
+				app()->setLocale(session()->get('locale'));
+			}
+			else
+			{
+				session()->put('locale', 'en');
+				app()->setLocale(session()->get('locale'));
+			}
 		}
 		return $next($request);
 	}
