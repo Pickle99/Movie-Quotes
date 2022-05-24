@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\MovieController as AdminMovieController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\Admin\QuoteController as AdminQuoteController;
 use App\Http\Controllers\QuoteController;
-use App\Http\Controllers\MainController;
-use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,25 +19,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [MainController::class, 'index'])->name('home');
-Route::get('movie/{id}', [MainController::class, 'show'])->name('movie');
+Route::get('/', [QuoteController::class, 'index'])->name('home');
+Route::get('movie/{movie}', [MovieController::class, 'show'])->name('movie');
 
-Route::get('login', [SessionsController::class, 'create'])->name('login')->middleware('guest');
-Route::post('sessions', [SessionsController::class, 'store'])->name('sessions.store')->middleware('guest');
-Route::post('logout', [SessionsController::class, 'destroy'])->name('logout')->middleware('auth');
+Route::get('login', [AuthController::class, 'login'])->name('login')->middleware('guest');
+Route::post('auth', [AuthController::class, 'auth'])->name('auth')->middleware('guest');
+Route::post('logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
-Route::get('admin', [MovieController::class, 'index'])->name('admin.index')->middleware('admin');
-Route::get('admin/movies/create', [MovieController::class, 'create'])->name('movie.create')->middleware('admin');
-Route::post('admin/movies', [MovieController::class, 'store'])->name('movie.store')->middleware('admin');
-Route::get('admin/movie/{id}/edit', [MovieController::class, 'edit'])->name('movie.edit')->middleware('admin');
-Route::patch('admin/movie/{id}', [MovieController::class, 'update'])->name('movie.update')->middleware('admin');
-Route::delete('admin/movie/{id}', [MovieController::class, 'destroy'])->name('movie.destroy')->middleware('admin');
+Route::prefix('admin')->middleware('admin')->group(function () {
+	Route::get('/', [AdminMovieController::class, 'index'])->name('movies.index');
+	Route::get('movies/create', [AdminMovieController::class, 'create'])->name('movies.create');
+	Route::post('movies', [AdminMovieController::class, 'store'])->name('movies.store');
+	Route::get('movies/{movie}/edit', [AdminMovieController::class, 'edit'])->name('movies.edit');
+	Route::patch('{movie}/movies', [AdminMovieController::class, 'update'])->name('movies.update');
+	Route::delete('{movie}/movies', [AdminMovieController::class, 'destroy'])->name('movies.destroy');
 
-Route::get('admin/quotes/{id}', [QuoteController::class, 'index'])->name('quotes.index')->middleware('admin');
-Route::get('admin/movies/{id}', [QuoteController::class, 'create'])->name('quote.create')->middleware('admin');
-Route::post('admin/{id}', [QuoteController::class, 'store'])->name('quote.store')->middleware('admin');
-Route::get('admin/quote/{id}/edit', [QuoteController::class, 'edit'])->name('quote.edit')->middleware('admin');
-Route::patch('admin/quote/{id}', [QuoteController::class, 'update'])->name('quote.update')->middleware('admin');
-Route::delete('admin/quote/{id}', [QuoteController::class, 'destroy'])->name('quote.destroy')->middleware('admin');
+	Route::get('movies/{movie}/quotes', [AdminQuoteController::class, 'index'])->name('quotes.index');
+	Route::get('movies/{movie}/quotes/create', [AdminQuoteController::class, 'create'])->name('quotes.create');
+	Route::post('movies/{movie}/quotes', [AdminQuoteController::class, 'store'])->name('quotes.store');
+	Route::get('quotes/{quote}/edit', [AdminQuoteController::class, 'edit'])->name('quotes.edit');
+	Route::patch('{quote}/quotes', [AdminQuoteController::class, 'update'])->name('quotes.update');
+	Route::delete('{quote}/quotes', [AdminQuoteController::class, 'destroy'])->name('quotes.destroy');
+});
 
-Route::get('set-locale/{locale}', [SessionsController::class, 'update'])->name('set.locale');
+Route::get('set-locale/{locale}', [LanguageController::class, 'locale'])->name('set.locale');

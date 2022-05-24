@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="mt-20"><a class=" mx-10 border rounded-3xl p-2 font-sansation text-lg text-white hover:bg-indigo-700" href="/">go back</a></div>
+    <div class="mt-20"><a class=" mx-10 border rounded-3xl p-2 font-sansation text-lg text-white hover:bg-indigo-700" href="/">{{__('translate.go back')}}</a></div>
     <x-movie-container-pt class="pt-12">
             <div class="max-w-[40rem]">
         <div class="items-center pb-40">
@@ -7,7 +7,7 @@
             <div class="text-center">
                 @if(!is_null($movie))
               <div class="flex justify-start">
-                  <p class="pb-1 text-white text-3xl">{{$movie->getTranslation('name','name_'.app()->getLocale())}}</p>
+                  <p class="pb-1 text-white text-3xl">{{$movie->name}}</p>
               </div>
              <div>
 
@@ -15,19 +15,19 @@
 
                          <div class="my-12">
                              <img src="{{asset($movie->image)}}" alt="img">
-                             <p class="py-4 text-3xl bg-red-50 rounded"> Quotes for this movie dont exist yet ...</p>
+                             <p class="py-4 text-3xl bg-red-50 rounded"> {{__('translate.noquote')}}</p>
                          </div>
 
                  @else
                      @foreach($movie->quotes as $quote)
                          <div class="my-12">
                              <img src="{{asset($movie->image)}}" alt="img">
-                             <p class="py-4 px-2 text-lg bg-red-50 rounded"> {{$quote->getTranslation('title', 'title_'.app()->getLocale())}}</p>
+                             <p class="py-4 px-2 text-lg bg-red-50 rounded"> {{$quote->title}}</p>
                          </div>
                      @endforeach
                  @endif
                  @else
-                     <h1 class="text-3xl">Sorry, movie with this ID doesn't exist</h1>
+                     <h1 class="text-3xl">{{__('translate.sorry')}}</h1>
 
              @endif
              </div>

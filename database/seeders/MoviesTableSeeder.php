@@ -16,19 +16,19 @@ class MoviesTableSeeder extends Seeder
 	{
 		DB::table('movies')->insert(
 			[[
-				'name'  => '{"name_en":"Perfume: The Story of a Murderer","name_ka":"პარფიუმერი: ერთი მკვლელის ისტორია"}',
+				'name'  => '{"en":"Perfume: The Story of a Murderer","ka":"პარფიუმერი: ერთი მკვლელის ისტორია"}',
 				'image' => 'images/parfumer.jpg',
 			],
 				[
-					'name'  => '{"name_en":"Breaking Bad","name_ka":"მძიმე დანაშაული"}',
+					'name'  => '{"en":"Breaking Bad","ka":"მძიმე დანაშაული"}',
 					'image' => 'images/breakingbad.jpg',
 				],
 				[
-					'name'  => '{"name_en":"Platform","name_ka":"პლატფორმა"}',
+					'name'  => '{"en":"Platform","ka":"პლატფორმა"}',
 					'image' => 'images/platform.jpg',
 				],
 				[
-					'name'  => '{"name_en":"Deep Sleep","name_ka":"ღრმა ძილი"}',
+					'name'  => '{"en":"Deep Sleep","ka":"ღრმა ძილი"}',
 					'image' => 'images/sleepp.jpg',
 				],
 			]
