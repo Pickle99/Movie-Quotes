@@ -5,13 +5,13 @@
         <div class="items-center pb-40">
 
             <div class="text-center">
-                @if(!is_null($movie))
+                @if(!$isNull)
               <div class="flex justify-start">
                   <p class="pb-1 text-white text-3xl">{{$movie->name}}</p>
               </div>
              <div>
 
-                    @if(!$movie->quotes->count())
+                    @if(!$count)
 
                          <div class="my-12">
                              <img src="{{asset($movie->image)}}" alt="img">
@@ -19,7 +19,7 @@
                          </div>
 
                  @else
-                     @foreach($movie->quotes as $quote)
+                     @foreach($quotes as $quote)
                          <div class="my-12">
                              <img src="{{asset($movie->image)}}" alt="img">
                              <p class="py-4 px-2 text-lg bg-red-50 rounded"> {{$quote->title}}</p>

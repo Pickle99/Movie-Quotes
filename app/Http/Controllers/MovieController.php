@@ -12,8 +12,14 @@ class MovieController extends Controller
 	 */
 	public function show(Movie $movie): View
 	{
+		$isNull = is_null($movie);
+		$count = $movie->quotes->count();
+		$quotes = $movie->quotes;
 		return view('components.show-quotes', [
+			'count'  => $count,
+			'isNull' => $isNull,
 			'movie'  => $movie,
+			'quotes' => $quotes,
 		]);
 	}
 }
