@@ -34,10 +34,10 @@ class UpdateMovieRequest extends FormRequest
 	{
 		return [
 			'title.en.required' => 'english_movie_is_required',
-			'title.en.max'      => 'english_movie_can_not_contain_more_than_:max_symbols',
+			'title.en.max'      => 'english_movie_can_not_contain_more_than_255_symbols',
 			'title.en.unique'   => 'this_movie_is_already_exist',
 			'title.ka.required' => 'georgian_movie_is_required',
-			'title.ka.max'      => 'georgian_movie_can_not_contain_more_than_:max_symbols',
+			'title.ka.max'      => 'georgian_movie_can_not_contain_more_than_255_symbols',
 			'title.ka.unique'   => 'this_movie_is_already_exist',
 			'image.required'    => 'image_is_required',
 			'image.image'       => 'this_Image_should_be_an_image_format',

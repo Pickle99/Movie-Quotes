@@ -33,9 +33,9 @@ class UpdateQuoteRequest extends FormRequest
 	{
 		return [
 			'quote_en.required' => 'english_quote_is_required',
-			'quote_en.max'      => 'english_quote_can_not_contain_more_than_:max_symbols',
+			'quote_en.max'      => 'english_quote_can_not_contain_more_than_255_symbols',
 			'quote_ka.required' => 'georgian_quote_is_required',
-			'quote_ka.max'      => 'georgian_quote_can_not_contain_more_than_:max_symbols',
+			'quote_ka.max'      => 'georgian_quote_can_not_contain_more_than_255_symbols',
 		];
 	}
 }
