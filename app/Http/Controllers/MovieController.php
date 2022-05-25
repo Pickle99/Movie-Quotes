@@ -16,10 +16,10 @@ class MovieController extends Controller
 		$count = $movie->quotes->count();
 		$quotes = $movie->quotes;
 		return view('components.show-quotes', [
-			'count'  => $count,
-			'isNull' => $isNull,
-			'movie'  => $movie,
-			'quotes' => $quotes,
+			'count'   => $count,
+			'isNull'  => $isNull,
+			'movie'   => $movie,
+			'quotes'  => $quotes,
 		]);
 	}
 }

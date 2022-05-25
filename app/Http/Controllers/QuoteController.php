@@ -15,15 +15,11 @@ class QuoteController extends Controller
 	{
 		$movie = Movie::inRandomOrder()->first();
 		$movies = Movie::all();
-//		$countMovies = $movies->count();
-//		$countQuotes = $movie->quotes->count();
-//		$randomQuotes = $movie->quotes[random_int(0, count($movie->quotes) - 1)];
+		$quote = $movie->quotes->count() ? $movie->quotes->random() : null;
 		return view('components.random-quote', [
 			'movie'            => $movie,
 			'movies'           => $movies,
-			//			'countMovies'      => $countMovies,
-			//			'countQuotes'      => $countQuotes,
-			//			'randomQuotes'     => $randomQuotes,
+			'quote'            => $quote,
 		]);
 	}
 }

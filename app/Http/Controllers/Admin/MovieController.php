@@ -28,21 +28,22 @@ class MovieController extends Controller
 
 	public function store(StoreMovieRequest $request): RedirectResponse
 	{
-		$movie = Movie::create([
-			'name' => [
-				'en' => $request->movie_en,
-				'ka' => $request->movie_ka,
-			],
-			'image' => 'storage/' . $request->file('image')->store('images'),
-		]);
+		$movie = new Movie;
+		$movie->name = $request->title;
+		if ($request->hasFile('image'))
+		{
+			File::delete(public_path('images/') . $movie->image);
+			$file = $request->file('image');
+			$filename = $file->getClientOriginalName();
+			$file->move('images/', $filename);
+			$movie->image = $filename;
+		}
+		$movie->save();
 
-		Quote::create([
-			'movie_id' => $movie->id,
-			'title'    => [
-				'en' => $request->quote_en,
-				'ka' => $request->quote_ka,
-			],
-		]);
+		$quote = new Quote;
+		$quote->title = $request->quote;
+		$quote->movie_id = $movie->id;
+		$quote->save();
 
 		return redirect('/');
 	}
@@ -56,39 +57,13 @@ class MovieController extends Controller
 
 	public function update(UpdateMovieRequest $request, Movie $movie): RedirectResponse
 	{
-		// if movie already exists remove it from storage
-//		$image = $request->image;
-//		if (isset($image))
-//		{
-//			$image = request()->file('image')->store('images');
-//		}
-
-//		if ($request->hasFile('image'))
-//		{
-//			$destination = 'images/' . $movie->image;
-//			if (File::exists($destination))
-//			{
-//				File::delete($destination);
-//			}
-//			$file = $request->file('image');
-//			$extention = $file->getClientOriginalExtension();
-//			$filename = time() . '.' . $extention;
-//			$file->move('images/', $filename);
-//			$movie->image = $filename;
-//		}
-
-		$movie->name = $request->input(['movie']);
+		$movie->name = $request->title;
 
 		if ($request->hasFile('image'))
 		{
-			$destination = asset('images/' . $movie->image);
+			File::delete(public_path('images') . $movie->image);
 			$file = $request->file('image');
-
-			if ($movie->image)
-			{
-				$filename = $file->getClientOriginalName();
-				File::delete(public_path('images/') . $movie->image);
-			}
+			$filename = $file->getClientOriginalName();
 			$file->move('images/', $filename);
 			$movie->image = $filename;
 		}

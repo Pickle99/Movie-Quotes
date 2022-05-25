@@ -9,7 +9,7 @@
                 @if(!$movie->quotes->count())
                     <p class="pt-3 text-2xl text-white">{{__('translate.noquote')}} . . .</p>
                 @else
-                    <p class="pt-3 text-3xl text-white">"{{$movie->quotes[random_int(0, count($movie->quotes) - 1)]->title}}"</p>
+                    <p class="pt-3 text-3xl text-white">"{{$quote->title}}"</p>
                 @endif
                 <div class="mt-20"><a  class="text-white pb-40  underline  text-3xl" href="/movie/{{$movie->id}}"> {{$movie->name}}</a></div>
             </div>

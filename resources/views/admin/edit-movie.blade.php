@@ -14,9 +14,9 @@
                             <div class="col-span-3 sm:col-span-2">
                                 <label for="movie" class="block text-sm font-medium text-gray-700"> {{__('translate.English movie name')}}</label>
                                 <div class="mt-1 flex rounded-md shadow-sm">
-                                    <input type="text" value="{{$movie->getTranslation('name', 'en')}}" name="movie[en]" id="movie" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300">
+                                    <input type="text" value="{{$movie->getTranslation('name', 'en')}}" name="title[en]" id="movie" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300">
                                 </div>
-                                @error('movie')
+                                @error('title.en')
                                 <p class="text-red-500 text-lg mt-2">
                                     {{ __("translate.$message")}}
                                 </p>
@@ -28,9 +28,9 @@
                             <div class="col-span-3 sm:col-span-2">
                                 <label for="movie" class="block text-sm font-medium text-gray-700"> {{__('translate.Georgian movie name')}} </label>
                                 <div class="mt-1 flex rounded-md shadow-sm">
-                                    <input type="text" value="{{$movie->getTranslation('name', 'ka')}}" name="movie[ka]" id="movie" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300">
+                                    <input type="text" value="{{$movie->getTranslation('name', 'ka')}}" name="title[ka]" id="movie" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300">
                                 </div>
-                                @error('movie')
+                                @error('title.ka')
                                 <p class="text-red-500 text-lg mt-2">
                                     {{ __("translate.$message")}}
                                 </p>

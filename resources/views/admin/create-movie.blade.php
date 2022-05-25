@@ -7,9 +7,9 @@
                     <div>
                         <label for="movie" class="block text-sm font-medium text-gray-700"> {{__('translate.English movie name')}} </label>
                         <div class="mt-1">
-                            <input id="movie" name="movie_en" value="{{old('movie_en')}}" type="text" autocomplete="email" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            <input id="movie" name="title[en]" value="{{old('title.en')}}" type="text" autocomplete="email" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                         </div>
-                        @error('movie_en')
+                        @error('title.en')
                         <p class="text-red-500 text-lg mt-2">
                             {{ __("translate.$message")}}
                         </p>
@@ -19,9 +19,9 @@
                     <div>
                         <label for="movie" class="block text-sm font-medium text-gray-700"> {{__('translate.Georgian movie name')}} </label>
                         <div class="mt-1">
-                            <input id="movie" name="movie_ka" value="{{old('movie_ka')}}" type="text" autocomplete="email" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            <input id="movie" name="title[ka]" value="{{old('title.ka')}}" type="text" autocomplete="email" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                         </div>
-                        @error('movie_ka')
+                        @error('title.ka')
                         <p class="text-red-500 text-lg mt-2">
                             {{ __("translate.$message")}}
                         </p>
@@ -31,9 +31,9 @@
                     <div>
                         <label for="quote" class="block text-sm font-medium text-gray-700"> {{__('translate.English quote name')}} </label>
                         <div class="mt-1">
-                            <input id="quote" name="quote_en" value="{{old('quote_en')}}" type="text" autocomplete="email" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            <input id="quote" name="quote[en]" value="{{old('quote.en')}}" type="text" autocomplete="email" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                         </div>
-                        @error('quote_en')
+                        @error('quote.en')
                         <p class="text-red-500 text-lg mt-2">
                             {{ __("translate.$message")}}
                         </p>
@@ -43,9 +43,9 @@
                     <div>
                         <label for="quote" class="block text-sm font-medium text-gray-700"> {{__('translate.Georgian quote name')}} </label>
                         <div class="mt-1">
-                            <input id="quote"  value="{{old('quote_ka')}}" name="quote_ka" type="text" autocomplete="current-password" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            <input id="quote"  value="{{old('quote.ka')}}" name="quote[ka]" type="text" autocomplete="current-password" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                         </div>
-                        @error('quote_ka')
+                        @error('quote.ka')
                         <p class="text-red-500 text-lg mt-2">
                             {{ __("translate.$message")}}
                         </p>

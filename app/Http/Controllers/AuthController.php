@@ -5,18 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AuthRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Validation\ValidationException;
-use Illuminate\View\View;
 
 class AuthController extends Controller
 {
-	public function login(): View // add return Types
+	public function login(AuthRequest $request): RedirectResponse
 	{
-		return view('sessions.login'); // This Should be login
-	}
-
-	public function auth(AuthRequest $request): RedirectResponse
-	{
-		// use Custom Request
 		$attributes = $request->validated();
 		if (!auth()->attempt($attributes))
 		{

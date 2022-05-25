@@ -24,25 +24,25 @@ class StoreMovieRequest extends FormRequest
 	public function rules()
 	{
 		return [
-			'movie_en'  => 'required|unique:movies,name->name_en',
-			'movie_ka'  => 'required|unique:movies,name->name_ka',
+			'title.en'  => 'required|unique:movies,name->name_en',
+			'title.ka'  => 'required|unique:movies,name->name_ka',
 			'image'     => 'required|image',
-			'quote_en'  => 'required|unique:quotes,title->title_en',
-			'quote_ka'  => 'required|unique:quotes,title->title_ka',
+			'quote.en'  => 'required|unique:quotes,title->title_en',
+			'quote.ka'  => 'required|unique:quotes,title->title_ka',
 		];
 	}
 
 	public function messages()
 	{
 		return [
-			'movie_en.required' => 'English movie is required',
-			'movie_en.unique'   => 'This movie is already exist',
-			'movie_ka.required' => 'Georgian movie is required',
-			'movie_ka.unique'   => 'This movie is already exist',
-			'quote_en.required' => 'English quote is required',
-			'quote_en.unique'   => 'This quote is already exist',
-			'quote_ka.required' => 'Georgian quote is required',
-			'quote_ka.unique'   => 'This quote is already exist',
+			'title.en.required' => 'English movie is required',
+			'title.en.unique'   => 'This movie is already exist',
+			'title.ka.required' => 'Georgian movie is required',
+			'title.ka.unique'   => 'This movie is already exist',
+			'quote.en.required' => 'English quote is required',
+			'quote.en.unique'   => 'This quote is already exist',
+			'quote.ka.required' => 'Georgian quote is required',
+			'quote.ka.unique'   => 'This quote is already exist',
 			'image.required'    => 'Image is required',
 			'image.image'       => 'This Image should be an image format',
 		];
