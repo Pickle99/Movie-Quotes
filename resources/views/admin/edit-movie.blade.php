@@ -7,16 +7,16 @@
         <div class="flex mt-40">
             <form method="POST" action="/admin/{{$movie->id}}/movies" enctype="multipart/form-data">
                 @csrf
-                @method('PATCH')
+                @method('PUT')
                 <div class="shadow sm:rounded-md sm:overflow-hidden">
                     <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                         <div class="grid grid-cols-3 gap-6">
                             <div class="col-span-3 sm:col-span-2">
                                 <label for="movie" class="block text-sm font-medium text-gray-700"> {{__('translate.English movie name')}}</label>
                                 <div class="mt-1 flex rounded-md shadow-sm">
-                                    <input type="text" value="{{$movie->getTranslation('name', 'en')}}" name="movie_en" id="movie" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300">
+                                    <input type="text" value="{{$movie->getTranslation('name', 'en')}}" name="movie[en]" id="movie" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300">
                                 </div>
-                                @error('movie_en')
+                                @error('movie')
                                 <p class="text-red-500 text-lg mt-2">
                                     {{ __("translate.$message")}}
                                 </p>
@@ -28,9 +28,9 @@
                             <div class="col-span-3 sm:col-span-2">
                                 <label for="movie" class="block text-sm font-medium text-gray-700"> {{__('translate.Georgian movie name')}} </label>
                                 <div class="mt-1 flex rounded-md shadow-sm">
-                                    <input type="text" value="{{$movie->getTranslation('name', 'ka')}}" name="movie_ka" id="movie" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300">
+                                    <input type="text" value="{{$movie->getTranslation('name', 'ka')}}" name="movie[ka]" id="movie" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300">
                                 </div>
-                                @error('movie_ka')
+                                @error('movie')
                                 <p class="text-red-500 text-lg mt-2">
                                     {{ __("translate.$message")}}
                                 </p>
@@ -52,6 +52,7 @@
                                             <input id="image" type="file"
                                                    name="image"
                                                    class="sr-only"
+                                                   value="{{asset('images'.$movie->image)}}"
 {{--                                                   value="{{asset('images/'.$movie->image)}}">--}}>
 
 
@@ -63,7 +64,8 @@
                                     <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
                                 </div>
                             </div>
-                            <div class="pt-10 flex"><p class="pr-16">{{__('translate.current image')}}</p><img class="w-48" src="{{asset($movie->image)}}" alt="img"/></div>
+                            <div class="pt-10 flex"><p class="pr-16">{{__('translate.current image')}}</p><img class="w-48" src="{{asset('images/'.$movie->image)}}" alt="img"/></div>
+
                             @error('image')
                             <p class="text-red-500 text-lg mt-2">
                                 {{ __("translate.$message")}}

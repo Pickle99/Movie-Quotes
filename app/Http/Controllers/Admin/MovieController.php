@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateMovieRequest;
 use App\Models\Movie;
 use App\Models\Quote;
+use Illuminate\Support\Facades\File;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\StoreMovieRequest;
@@ -42,6 +43,7 @@ class MovieController extends Controller
 				'ka' => $request->quote_ka,
 			],
 		]);
+
 		return redirect('/');
 	}
 
@@ -55,20 +57,42 @@ class MovieController extends Controller
 	public function update(UpdateMovieRequest $request, Movie $movie): RedirectResponse
 	{
 		// if movie already exists remove it from storage
-		$image = $request->image;
-		if (isset($image))
+//		$image = $request->image;
+//		if (isset($image))
+//		{
+//			$image = request()->file('image')->store('images');
+//		}
+
+//		if ($request->hasFile('image'))
+//		{
+//			$destination = 'images/' . $movie->image;
+//			if (File::exists($destination))
+//			{
+//				File::delete($destination);
+//			}
+//			$file = $request->file('image');
+//			$extention = $file->getClientOriginalExtension();
+//			$filename = time() . '.' . $extention;
+//			$file->move('images/', $filename);
+//			$movie->image = $filename;
+//		}
+
+		$movie->name = $request->input(['movie']);
+
+		if ($request->hasFile('image'))
 		{
-			$image = request()->file('image')->store('images');
+			$destination = asset('images/' . $movie->image);
+			$file = $request->file('image');
+
+			if ($movie->image)
+			{
+				$filename = $file->getClientOriginalName();
+				File::delete(public_path('images/') . $movie->image);
+			}
+			$file->move('images/', $filename);
+			$movie->image = $filename;
 		}
-		{
-			$movie->update([
-				'name' => [
-					'en' => $request->movie_en,
-					'ka' => $request->movie_ka,
-				],
-				'image'   => $image,
-			]);
-		}
+		$movie->update();
 
 		return redirect('/')->with('success', 'Movie updated');
 	}

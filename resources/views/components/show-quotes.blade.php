@@ -21,7 +21,7 @@
                  @else
                      @foreach($quotes as $quote)
                          <div class="my-12">
-                             <img src="{{asset($movie->image)}}" alt="img">
+                             <img src="{{asset('images/'.$movie->image)}}" alt="img">
                              <p class="py-4 px-2 text-lg bg-red-50 rounded"> {{$quote->title}}</p>
                          </div>
                      @endforeach

@@ -31,7 +31,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
 	Route::get('movies/create', [AdminMovieController::class, 'create'])->name('movies.create');
 	Route::post('movies', [AdminMovieController::class, 'store'])->name('movies.store');
 	Route::get('movies/{movie}/edit', [AdminMovieController::class, 'edit'])->name('movies.edit');
-	Route::patch('{movie}/movies', [AdminMovieController::class, 'update'])->name('movies.update');
+	Route::put('{movie}/movies', [AdminMovieController::class, 'update'])->name('movies.update');
 	Route::delete('{movie}/movies', [AdminMovieController::class, 'destroy'])->name('movies.destroy');
 
 	Route::get('movies/{movie}/quotes', [AdminQuoteController::class, 'index'])->name('quotes.index');

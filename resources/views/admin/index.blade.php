@@ -7,7 +7,7 @@
             <div class="flex-1 flex flex-col p-8">
 
 
-                  <img class="w-96 h-48 flex-shrink-0 mx-auto" src="{{asset($movie->image)}}" alt="img">
+                  <img class="w-96 h-48 flex-shrink-0 mx-auto" src="{{asset('images/'.$movie->image)}}" alt="img">
 {{--                                  <img class="w-96 h-48 flex-shrink-0 mx-auto" src="{{asset('storage/'.$movie->image)}}" alt="img">--}}
                                             {{--          TEST      --}}
 

@@ -24,21 +24,21 @@ class UpdateMovieRequest extends FormRequest
 	public function rules()
 	{
 		return [
-			'movie_en'  => 'required|max:100|unique:movies,name->name_en,',
-			'movie_ka'  => 'required|max:100|unique:movies,name->name_ka,',
-			'image'     => 'required|image',
+			'movie.en'  => 'required|max:100|unique:movies,name->name_en,',
+			'movie.ka'  => 'required|max:100|unique:movies,name->name_ka,',
+			'image'     => 'image',
 		];
 	}
 
 	public function messages()
 	{
 		return [
-			'movie_en.required' => 'English movie is required',
-			'movie_en.max'      => 'English movie can not contain more than :max symbols',
-			'movie_en.unique'   => 'This movie is already exist',
-			'movie_ka.required' => 'Georgian movie is required',
-			'movie_ka.max'      => 'Georgian movie can not contain more than :max symbols',
-			'movie_ka.unique'   => 'This movie is already exist',
+			'movie.en.required' => 'English movie is required',
+			'movie.en.max'      => 'English movie can not contain more than :max symbols',
+			'movie.en.unique'   => 'This movie is already exist',
+			'movie.ka.required' => 'Georgian movie is required',
+			'movie.ka.max'      => 'Georgian movie can not contain more than :max symbols',
+			'movie.ka.unique'   => 'This movie is already exist',
 			'image.required'    => 'Image is required',
 			'image.image'       => 'This Image should be an image format',
 		];
