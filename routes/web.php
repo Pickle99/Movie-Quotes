@@ -22,7 +22,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [QuoteController::class, 'index'])->name('home');
 Route::get('movie/{movie}', [MovieController::class, 'show'])->name('movie');
 
-//Route::get('login', [AuthController::class, 'login'])->name('login')->middleware('guest');
 Route::view('login', 'sessions.login')->name('login.view')->middleware('guest');
 Route::post('login', [AuthController::class, 'login'])->name('login')->middleware('guest');
 Route::post('logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
