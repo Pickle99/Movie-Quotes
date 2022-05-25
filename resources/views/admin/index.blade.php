@@ -1,6 +1,6 @@
 <x-layout>
     <div class="m-40">
-      <div class="mb-10"><a href="/admin/movies/create" class="hover:bg-green-200 bg-white p-1 rounded-full text-2xl text-gray-700">{{__('translate.Add Movie')}}</a></div>
+      <div class="mb-10"><a href="/admin/movies/create" class="hover:bg-green-200 bg-white p-1 rounded-full text-2xl text-gray-700">{{__('translate.Add_Movie')}}</a></div>
     <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         @foreach($movies as $movie)
         <li class="col-span-1 flex flex-col text-center bg-white rounded-lg shadow divide-y divide-gray-200">
@@ -11,11 +11,11 @@
                     @if($movie->quotes->count())
                         <dd class="text-gray-500 text-sm">{{$movie->quotes[random_int(0, count($movie->quotes)-1)]->name}}</dd>
                     @else
-                        <dd class="text-gray-500 text-sm">{{__('translate.noquote')}}...</dd>
+                        <dd class="text-gray-500 text-sm">{{__('translate.no_quote')}}...</dd>
                     @endif
 
                     <dd class="mt-3">
-                        <a href="/admin/movies/{{$movie->id}}/quotes" class="px-2 py-1 text-blue-600 text-lg font-medium underline hover:bg-blue-200 rounded-full">{{__('translate.Show all quotes')}}</a>
+                        <a href="/admin/movies/{{$movie->id}}/quotes" class="px-2 py-1 text-blue-600 text-lg font-medium underline hover:bg-blue-200 rounded-full">{{__('translate.Show_all_quotes')}}</a>
                     </dd>
 
                 </dl>

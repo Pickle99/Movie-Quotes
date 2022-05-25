@@ -11,14 +11,14 @@
     <div class="mt-4 flex justify-end">
 
            <div class="hover:bg-red-300 px-3.5 bg-red-50 rounded-xl">
-            <a href="/admin" class="text-xl">{{__('translate.Admin Panel')}}</a>
+            <a href="/admin" class="text-xl">{{__('translate.Admin_Panel')}}</a>
         </div>
 
         <form method="POST" action="/logout">
             @csrf
 
             <div class="hover:bg-red-300 mx-20 bg-red-50 px-3.5 rounded-xl">
-                <button type="submit" class="text-xl">{{__('translate.Log Out')}}</button>
+                <button type="submit" class="text-xl">{{__('translate.Log_Out')}}</button>
             </div>
 
         </form>

@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="mt-20"><a class=" mx-10 border rounded-3xl p-2 font-sansation text-lg text-white hover:bg-indigo-700" href="/">{{__('translate.go back')}}</a></div>
+    <div class="mt-20"><a class=" mx-10 border rounded-3xl p-2 font-sansation text-lg text-white hover:bg-indigo-700" href="/">{{__('translate.go_back')}}</a></div>
     <x-movie-container-pt class="pt-12">
             <div class="max-w-[40rem]">
         <div class="items-center pb-40">
@@ -15,7 +15,7 @@
 
                          <div class="my-12">
                              <img src="{{asset($movie->image)}}" alt="img">
-                             <p class="py-4 text-3xl bg-red-50 rounded"> {{__('translate.noquote')}}</p>
+                             <p class="py-4 text-3xl bg-red-50 rounded"> {{__('translate.no_quote')}}</p>
                          </div>
 
                  @else

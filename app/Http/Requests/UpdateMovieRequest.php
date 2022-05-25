@@ -33,14 +33,14 @@ class UpdateMovieRequest extends FormRequest
 	public function messages()
 	{
 		return [
-			'title.en.required' => 'English movie is required',
-			'title.en.max'      => 'English movie can not contain more than :max symbols',
-			'title.en.unique'   => 'This movie is already exist',
-			'title.ka.required' => 'Georgian movie is required',
-			'title.ka.max'      => 'Georgian movie can not contain more than :max symbols',
-			'title.ka.unique'   => 'This movie is already exist',
-			'image.required'    => 'Image is required',
-			'image.image'       => 'This Image should be an image format',
+			'title.en.required' => 'English_movie_is_required',
+			'title.en.max'      => 'English_movie_can_not_contain_more_than_:max_symbols',
+			'title.en.unique'   => 'This_movie_is_already_exist',
+			'title.ka.required' => 'Georgian_movie_is_required',
+			'title.ka.max'      => 'Georgian_movie_can_not_contain_more_than_:max_symbols',
+			'title.ka.unique'   => 'This_movie_is_already_exist',
+			'image.required'    => 'Image_is_required',
+			'image.image'       => 'This_Image_should_be_an_image_format',
 		];
 	}
 }

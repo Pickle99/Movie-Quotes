@@ -7,7 +7,7 @@
         <div class="flex">  <img src="{{ asset('images/'.$movie->image) }}" alt="img"></div>
             <div class="text-center mt-12">
                 @if(!$movie->quotes->count())
-                    <p class="pt-3 text-2xl text-white">{{__('translate.noquote')}} . . .</p>
+                    <p class="pt-3 text-2xl text-white">{{__('translate.no_quote')}} . . .</p>
                 @else
                     <p class="pt-3 text-3xl text-white">"{{$quote->title}}"</p>
                 @endif
@@ -16,7 +16,7 @@
         </div>
     @else
 
-        <h1 class="text-3xl"> {{__('translate.nomovie')}}</h1>
+        <h1 class="text-3xl"> {{__('translate.no_movie')}}</h1>
     @endif
         </div>
             </x-movie-container-pt>
