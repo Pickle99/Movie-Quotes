@@ -12,7 +12,7 @@
                     <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                         <div class="grid grid-cols-3 gap-6">
                             <div class="col-span-3 sm:col-span-2">
-                                <label for="movie" class="block text-sm font-medium text-gray-700"> {{__('translate.English_movie_name')}}</label>
+                                <label for="movie" class="block text-sm font-medium text-gray-700"> {{__('translate.english_movie_name')}}</label>
                                 <div class="mt-1 flex rounded-md shadow-sm">
                                     <input type="text" value="{{$movie->getTranslation('name', 'en')}}" name="title[en]" id="movie" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300">
                                 </div>
@@ -26,7 +26,7 @@
 
                         <div class="grid grid-cols-3 gap-6">
                             <div class="col-span-3 sm:col-span-2">
-                                <label for="movie" class="block text-sm font-medium text-gray-700"> {{__('translate.Georgian_movie_name')}} </label>
+                                <label for="movie" class="block text-sm font-medium text-gray-700"> {{__('translate.georgian_movie_name')}} </label>
                                 <div class="mt-1 flex rounded-md shadow-sm">
                                     <input type="text" value="{{$movie->getTranslation('name', 'ka')}}" name="title[ka]" id="movie" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300">
                                 </div>
@@ -39,7 +39,7 @@
                         </div>
 
                         <div>
-                            <label class="block text-sm font-medium text-gray-700"> {{__('translate.Upload_an_image')}} </label>
+                            <label class="block text-sm font-medium text-gray-700"> {{__('translate.upload_an_image')}} </label>
                             <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                                 <div class="space-y-1 text-center">
                                     <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">

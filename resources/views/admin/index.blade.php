@@ -1,6 +1,6 @@
 <x-layout>
     <div class="m-40">
-      <div class="mb-10"><a href="/admin/movies/create" class="hover:bg-green-200 bg-white p-1 rounded-full text-2xl text-gray-700">{{__('translate.Add_Movie')}}</a></div>
+      <div class="mb-10"><a href="/admin/movies/create" class="hover:bg-green-200 bg-white p-1 rounded-full text-2xl text-gray-700">{{__('translate.add_movie')}}</a></div>
     <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         @foreach($movies as $movie)
         <li class="col-span-1 flex flex-col text-center bg-white rounded-lg shadow divide-y divide-gray-200">
@@ -15,7 +15,7 @@
                     @endif
 
                     <dd class="mt-3">
-                        <a href="/admin/movies/{{$movie->id}}/quotes" class="px-2 py-1 text-blue-600 text-lg font-medium underline hover:bg-blue-200 rounded-full">{{__('translate.Show_all_quotes')}}</a>
+                        <a href="/admin/movies/{{$movie->id}}/quotes" class="px-2 py-1 text-blue-600 text-lg font-medium underline hover:bg-blue-200 rounded-full">{{__('translate.show_all_quotes')}}</a>
                     </dd>
 
                 </dl>
@@ -24,7 +24,7 @@
                 <div class="-mt-px flex divide-x divide-gray-200">
                     <div class="w-0 flex-1 flex hover:bg-green-500">
                         <a href="/admin/movies/{{$movie->id}}/edit" class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg">
-                            <span class="ml-3">{{__('translate.Edit')}}</span>
+                            <span class="ml-3">{{__('translate.edit')}}</span>
                         </a>
                     </div>
                     <div class="-ml-px w-0 flex-1 flex hover:bg-red-500">
@@ -32,7 +32,7 @@
                             <form method="POST" action="/admin/{{$movie->id}}/movies">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="ml-3">{{__('translate.Delete')}}</button>
+                                <button type="submit" class="ml-3">{{__('translate.delete')}}</button>
                             </form>
                         </a>
                     </div>

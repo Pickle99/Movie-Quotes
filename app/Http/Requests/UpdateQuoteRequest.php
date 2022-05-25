@@ -32,10 +32,10 @@ class UpdateQuoteRequest extends FormRequest
 	public function messages()
 	{
 		return [
-			'quote_en.required' => 'English_quote_is_required',
-			'quote_en.max'      => 'English_quote_can_not_contain_more_than_:max_symbols',
-			'quote_ka.required' => 'Georgian_quote_is_required',
-			'quote_ka.max'      => 'Georgian_quote_can_not_contain_more_than_:max_symbols',
+			'quote_en.required' => 'english_quote_is_required',
+			'quote_en.max'      => 'english_quote_can_not_contain_more_than_:max_symbols',
+			'quote_ka.required' => 'georgian_quote_is_required',
+			'quote_ka.max'      => 'georgian_quote_can_not_contain_more_than_:max_symbols',
 		];
 	}
 }

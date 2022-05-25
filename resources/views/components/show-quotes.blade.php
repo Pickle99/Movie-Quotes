@@ -27,7 +27,7 @@
                      @endforeach
                  @endif
                  @else
-                     <h1 class="text-3xl">{{__('translate.sorry')}}</h1>
+                     <h1 class="text-3xl">{{__('translate.sorry_movie_with_this_id_doesnt_exist')}}</h1>
 
              @endif
              </div>

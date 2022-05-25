@@ -35,16 +35,16 @@ class StoreMovieRequest extends FormRequest
 	public function messages()
 	{
 		return [
-			'title.en.required' => 'English_movie_is_required',
-			'title.en.unique'   => 'This_movie_is_already_exist',
-			'title.ka.required' => 'Georgian_movie_is_required',
-			'title.ka.unique'   => 'This_movie_is_already_exist',
-			'quote.en.required' => 'English_quote_is_required',
-			'quote.en.unique'   => 'This_quote_is_already_exist',
-			'quote.ka.required' => 'Georgian_quote_is_required',
-			'quote.ka.unique'   => 'This_quote_is_already_exist',
-			'image.required'    => 'Image_is_required',
-			'image.image'       => 'This_Image_should_be_an_image_format',
+			'title.en.required' => 'english_movie_is_required',
+			'title.en.unique'   => 'this_movie_is_already_exist',
+			'title.ka.required' => 'georgian_movie_is_required',
+			'title.ka.unique'   => 'this_movie_is_already_exist',
+			'quote.en.required' => 'english_quote_is_required',
+			'quote.en.unique'   => 'this_quote_is_already_exist',
+			'quote.ka.required' => 'georgian_quote_is_required',
+			'quote.ka.unique'   => 'this_quote_is_already_exist',
+			'image.required'    => 'image_is_required',
+			'image.image'       => 'this_Image_should_be_an_image_format',
 		];
 	}
 }

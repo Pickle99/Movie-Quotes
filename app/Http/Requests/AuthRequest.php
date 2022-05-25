@@ -32,9 +32,9 @@ class AuthRequest extends FormRequest
 	public function messages()
 	{
 		return [
-			'email.required'    => 'Email_is_required',
-			'email.email'       => 'Email_should_be_email_format',
-			'password.required' => 'Password_is_required',
+			'email.required'    => 'email_is_required',
+			'email.email'       => 'email_should_be_email_format',
+			'password.required' => 'password_is_required',
 		];
 	}
 }

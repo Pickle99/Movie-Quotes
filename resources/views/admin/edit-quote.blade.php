@@ -10,7 +10,7 @@
                 <div class="shadow sm:rounded-md sm:overflow-hidden">
                     <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                         <div class="w-96">
-                            <label for="quote" class="block text-sm font-medium text-gray-700"> {{__('translate.English_quote_name')}}</label>
+                            <label for="quote" class="block text-sm font-medium text-gray-700"> {{__('translate.english_quote_name')}}</label>
                             <div class="mt-1">
                                 <textarea id="quote" name="quote_en" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md">{{$quote->getTranslation('title', 'en')}}
                                 </textarea>
@@ -22,7 +22,7 @@
                             @enderror
                         </div>
                         <div class="w-96">
-                            <label for="quote" class="block text-sm font-medium text-gray-700"> {{__('translate.Georgian_quote_name')}}</label>
+                            <label for="quote" class="block text-sm font-medium text-gray-700"> {{__('translate.georgian_quote_name')}}</label>
                             <div class="mt-1">
                                 <textarea id="quote" name="quote_ka" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md">{{$quote->getTranslation('title', 'ka')}}
                                 </textarea>
