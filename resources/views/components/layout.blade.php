@@ -3,7 +3,7 @@
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 <link href="{{asset('css/app.css')}}" rel="stylesheet"/>
 <link href="http://fonts.cdnfonts.com/css/sansation" rel="stylesheet">
-    <title>{{__('translate.Movie Quotes')}}</title>
+    <title>{{__('translate.movie_quotes')}}</title>
 </head>
 
 <body class="bg-onepiece font-sansation">
